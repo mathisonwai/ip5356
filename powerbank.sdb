@@ -1,0 +1,687 @@
+[p PRO_MODE GLOBOPT AUTOSTATIC RSC14 RSC14E SPACEOPT ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip FT61F14X ]
+[d frameptr 6 ]
+"235 D:\wksp_demo\_sdk_ip5356_ft61f145\app_global.h
+[e E2445 _GPIO_KEY_STATE `uc
+GPIO_KEY_STATE_IDLE 0
+GPIO_KEY_STATE_JITTER 1
+GPIO_KEY_STATE_PRESS_DOWN 2
+GPIO_KEY_STATE_CP 3
+]
+"27 D:\wksp_demo\_sdk_ip5356_ft61f145\app_key.c
+[e E2616 _KEY_EVENT `uc
+MSG_NONE 0
+KEY_POWER 1
+MSG_MODE 33
+MSG_LIGHT 34
+MSG_POWER_ON 65
+MSG_LIGHT_CPS 66
+KEY_POWER_LONG_BREAK 97
+MSG_LIGHT_CPR 98
+KEY_POWER_LONG 129
+MSG_LIGHT_CPH 130
+]
+"62
+[e E2445 _GPIO_KEY_STATE `uc
+GPIO_KEY_STATE_IDLE 0
+GPIO_KEY_STATE_JITTER 1
+GPIO_KEY_STATE_PRESS_DOWN 2
+GPIO_KEY_STATE_CP 3
+]
+"499 D:\wksp_demo\_sdk_ip5356_ft61f145\app_bms_ip53xs.c
+[v _get_input_voltage_status get_input_voltage_status `(v  1 e 1 0 ]
+"849
+[v _reset_ipc_default reset_ipc_default `(v  1 e 1 0 ]
+"1024
+[v _get_p_ext_int_status get_p_ext_int_status `(v  1 e 1 0 ]
+"1162
+[v _init_ip53xs init_ip53xs `(v  1 e 1 0 ]
+"1947
+[v _disable_DPDM_quick_charge disable_DPDM_quick_charge `(v  1 e 1 0 ]
+"1956
+[v _disable_DP_quick_charge disable_DP_quick_charge `(v  1 e 1 0 ]
+"2072
+[v _enable_DPDM_quick_charge enable_DPDM_quick_charge `(v  1 e 1 0 ]
+"2083
+[v _enable_DP_quick_charge enable_DP_quick_charge `(v  1 e 1 0 ]
+"2207
+[v _disable_charger_on disable_charger_on `(v  1 e 1 0 ]
+"2215
+[v _enable_charger_on enable_charger_on `(v  1 e 1 0 ]
+"2232
+[v _disable_discharger_on disable_discharger_on `(v  1 e 1 0 ]
+"2240
+[v _enable_discharger_on enable_discharger_on `(v  1 e 1 0 ]
+"2518
+[v _change_total_current_limiting change_total_current_limiting `(v  1 e 1 0 ]
+"2585
+[v _restore_total_current_limiting restore_total_current_limiting `(v  1 e 1 0 ]
+"2599
+[v _disable_vbus_dishg_i_low disable_vbus_dishg_i_low `(v  1 e 1 0 ]
+"2610
+[v _enable_vbus_dishg_i_low enable_vbus_dishg_i_low `(v  1 e 1 0 ]
+"2625
+[v _get_multi_port_status get_multi_port_status `(v  1 e 1 0 ]
+"2955
+[v _set_force_standby_mode set_force_standby_mode `(v  1 e 1 0 ]
+"3148
+[v _derating_power_non_pd_9v derating_power_non_pd_9v `(v  1 e 1 0 ]
+"3162
+[v _restore_power_non_pd_9v restore_power_non_pd_9v `(v  1 e 1 0 ]
+"64 D:\wksp_demo\_sdk_ip5356_ft61f145\app_display.c
+[v _app_display_all app_display_all `(v  1 e 1 0 ]
+"17 D:\wksp_demo\_sdk_ip5356_ft61f145\app_global.c
+[v __dly_us _dly_us `(v  1 e 1 0 ]
+"25
+[v __dly_ms _dly_ms `(v  1 e 1 0 ]
+"59
+[v _init_gpio init_gpio `(v  1 e 1 0 ]
+"101
+[v _init_timer4 init_timer4 `(v  1 e 1 0 ]
+"176
+[v _init_system_parameter init_system_parameter `(v  1 e 1 0 ]
+"196
+[v _enable_Exit enable_Exit `(v  1 e 1 0 ]
+"224
+[v _disable_Exit disable_Exit `(v  1 e 1 0 ]
+"13 D:\wksp_demo\_sdk_ip5356_ft61f145\app_key.c
+[v _GetGpioKeyIndex GetGpioKeyIndex `(uc  1 s 1 GetGpioKeyIndex ]
+"16 D:\wksp_demo\_sdk_ip5356_ft61f145\bsp_i2c.c
+[v _i2c_start i2c_start `(v  1 e 1 0 ]
+"29
+[v _i2c_stop i2c_stop `(v  1 e 1 0 ]
+"40
+[v _i2c_chk_ack i2c_chk_ack `(uc  1 e 1 0 ]
+"77
+[v _i2c_send_nack i2c_send_nack `(v  1 e 1 0 ]
+"88
+[v _i2c_writeByte i2c_writeByte `(uc  1 e 1 0 ]
+"121
+[v _i2c_readByte i2c_readByte `(uc  1 e 1 0 ]
+"24 D:\wksp_demo\_sdk_ip5356_ft61f145\bsp_ip53xs.c
+[v _ip53xs_writeByte ip53xs_writeByte `(uc  1 e 1 0 ]
+"54
+[v _ip53xs_readByte ip53xs_readByte `(uc  1 e 1 0 ]
+"62 C:\Program Files (x86)\CCompiler\Compiler\data\sources\common\float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 C:\Program Files (x86)\CCompiler\Compiler\data\sources\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"4 C:\Program Files (x86)\CCompiler\Compiler\data\sources\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+"4 C:\Program Files (x86)\CCompiler\Compiler\data\sources\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+"6 C:\Program Files (x86)\CCompiler\Compiler\data\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"36 D:\wksp_demo\_sdk_ip5356_ft61f145\powerBank.c
+[v _main main `(v  1 e 1 0 ]
+"224
+[v _ISR ISR `II(v  1 e 1 0 ]
+"14 D:\wksp_demo\_sdk_ip5356_ft61f145\app_display.c
+[v _DispTable DispTable `DC[12]uc  1 e 12 0 ]
+"24 D:\wksp_demo\_sdk_ip5356_ft61f145\app_display.h
+[v _displayData displayData `VEuc  1 e 1 0 ]
+"25
+[v _displayHundred displayHundred `VEuc  1 e 1 0 ]
+"26
+[v _displayDecade displayDecade `VEuc  1 e 1 0 ]
+"27
+[v _displayDigit displayDigit `VEuc  1 e 1 0 ]
+"32
+[v _dispTimer dispTimer `VEuc  1 e 1 0 ]
+"33
+[v _dispTimerFull dispTimerFull `VEuc  1 e 1 0 ]
+"37
+[v _dispTimerUnderVoltage dispTimerUnderVoltage `VEuc  1 e 1 0 ]
+"14 D:\wksp_demo\_sdk_ip5356_ft61f145\app_global.h
+[v _bFlag_is_exception_full bFlag_is_exception_full `VEb  1 e 0 0 ]
+"15
+[v _bFlag_gSysTick_change bFlag_gSysTick_change `VEb  1 e 0 0 ]
+"16
+[v _bFlag_chg_or_dischg bFlag_chg_or_dischg `VEb  1 e 0 0 ]
+"17
+[v _bFlag_charge_on bFlag_charge_on `VEb  1 e 0 0 ]
+"18
+[v _bFlag_reg0xFD_bitx bFlag_reg0xFD_bitx `VEb  1 e 0 0 ]
+"19
+[v _bFlag_charge_qc bFlag_charge_qc `VEb  1 e 0 0 ]
+"20
+[v _bFlag_in_small_current_mode bFlag_in_small_current_mode `VEb  1 e 0 0 ]
+"21
+[v _bFlag_sink_pd bFlag_sink_pd `VEb  1 e 0 0 ]
+"22
+[v _bFlag_derating_power_non_pd_9v bFlag_derating_power_non_pd_9v `VEb  1 e 0 0 ]
+"23
+[v _bFlag_double_key bFlag_double_key `VEb  1 e 0 0 ]
+"24
+[v _bFlag_discharge_qc bFlag_discharge_qc `VEb  1 e 0 0 ]
+"25
+[v _bFlag_discharge_pd bFlag_discharge_pd `VEb  1 e 0 0 ]
+"26
+[v _bFlag_ovp_in_pd_9v bFlag_ovp_in_pd_9v `VEb  1 e 0 0 ]
+"27
+[v _bFlag_under_3v3 bFlag_under_3v3 `VEb  1 e 0 0 ]
+"28
+[v _bFlag_Timeslice_16ms bFlag_Timeslice_16ms `VEb  1 e 0 0 ]
+"29
+[v _bFlag_Timeslice_display bFlag_Timeslice_display `VEb  1 e 0 0 ]
+"30
+[v _bFlag_led_blue_always_on bFlag_led_blue_always_on `VEb  1 e 0 0 ]
+"31
+[v _bFlag_blink bFlag_blink `VEb  1 e 0 0 ]
+"33
+[v _bFlag_disable_send_cmd bFlag_disable_send_cmd `VEb  1 e 0 0 ]
+"34
+[v _bFlag_p_ext_int_is_high bFlag_p_ext_int_is_high `VEb  1 e 0 0 ]
+"35
+[v _bFlag_isys_over_1A5 bFlag_isys_over_1A5 `VEb  1 e 0 0 ]
+"36
+[v _bFlag_init_ip5356 bFlag_init_ip5356 `VEb  1 e 0 0 ]
+"37
+[v _bFlag_plus_in_12v bFlag_plus_in_12v `VEb  1 e 0 0 ]
+"40
+[v _bFlag_light_load bFlag_light_load `VEb  1 e 0 0 ]
+"41
+[v _bFlag_Bat_CC bFlag_Bat_CC `VEb  1 e 0 0 ]
+"42
+[v _bFlag_ad_voltage_battery_update bFlag_ad_voltage_battery_update `VEb  1 e 0 0 ]
+"44
+[v _bFlag_is_breathing_mode bFlag_is_breathing_mode `VEb  1 e 0 0 ]
+"45
+[v _bFlag_temp_alarm bFlag_temp_alarm `VEb  1 e 0 0 ]
+"46
+[v _bFlag_enable_charge bFlag_enable_charge `VEb  1 e 0 0 ]
+"47
+[v _bFlag_enable_discharge bFlag_enable_discharge `VEb  1 e 0 0 ]
+"48
+[v _bFlag_temp_exception_over_chg bFlag_temp_exception_over_chg `VEb  1 e 0 0 ]
+"49
+[v _bFlag_temp_exception_chg bFlag_temp_exception_chg `VEb  1 e 0 0 ]
+"50
+[v _bFlag_temp_exception_dischg bFlag_temp_exception_dischg `VEb  1 e 0 0 ]
+"51
+[v _bFlag_ad_ntc_update bFlag_ad_ntc_update `VEb  1 e 0 0 ]
+"52
+[v _bFlag_battery_is_low bFlag_battery_is_low `VEb  1 e 0 0 ]
+"53
+[v _bFlag_shutdown_eta bFlag_shutdown_eta `VEb  1 e 0 0 ]
+"54
+[v _bFlag_reverse bFlag_reverse `VEb  1 e 0 0 ]
+"56
+[v _bFlag_charge_complete bFlag_charge_complete `VEb  1 e 0 0 ]
+"57
+[v _bFlag_bt_standby bFlag_bt_standby `VEb  1 e 0 0 ]
+"58
+[v _bFlag_init_ip53xs bFlag_init_ip53xs `VEb  1 e 0 0 ]
+"59
+[v _bFlag_charge_ext bFlag_charge_ext `VEb  1 e 0 0 ]
+"61
+[v _bFlag_Timeslice_1ms bFlag_Timeslice_1ms `VEb  1 e 0 0 ]
+"62
+[v _bFlag_is_trickle_charge bFlag_is_trickle_charge `VEb  1 e 0 0 ]
+"63
+[v _bFlag_charging_from_empty bFlag_charging_from_empty `VEb  1 e 0 0 ]
+"64
+[v _bFlag_Calc_Coulomb_Counter bFlag_Calc_Coulomb_Counter `VEb  1 e 0 0 ]
+"65
+[v _bFlag_vsys_over_6v3 bFlag_vsys_over_6v3 `VEb  1 e 0 0 ]
+"66
+[v _bFlag_vsys_over_12v8 bFlag_vsys_over_12v8 `VEb  1 e 0 0 ]
+"67
+[v _bFlag_vsys_under_4v5 bFlag_vsys_under_4v5 `VEb  1 e 0 0 ]
+"68
+[v _bFlag_in_scp_A3 bFlag_in_scp_A3 `VEb  1 e 0 0 ]
+"69
+[v _bFlag_adjust_scp_ocp_5A bFlag_adjust_scp_ocp_5A `VEb  1 e 0 0 ]
+"70
+[v _bFlag_adjust_scp_ocp_4A5 bFlag_adjust_scp_ocp_4A5 `VEb  1 e 0 0 ]
+"71
+[v _bFlag_typec_in bFlag_typec_in `VEb  1 e 0 0 ]
+"72
+[v _bFlag_usb_a1_in bFlag_usb_a1_in `VEb  1 e 0 0 ]
+"73
+[v _bFlag_usb_a2_in bFlag_usb_a2_in `VEb  1 e 0 0 ]
+"74
+[v _bFlag_all_led_is_off bFlag_all_led_is_off `VEb  1 e 0 0 ]
+"76
+[v _bFlag_disable_quick_discharge bFlag_disable_quick_discharge `VEb  1 e 0 0 ]
+"77
+[v _bFlag_disable_quick_charge bFlag_disable_quick_charge `VEb  1 e 0 0 ]
+"78
+[v _bFlag_input_ovp bFlag_input_ovp `VEb  1 e 0 0 ]
+"79
+[v _bFlag_ocp bFlag_ocp `VEb  1 e 0 0 ]
+"80
+[v _bFlag_short_circuit bFlag_short_circuit `VEb  1 e 0 0 ]
+"81
+[v _bFlag_disable_charge_on bFlag_disable_charge_on `VEb  1 e 0 0 ]
+"82
+[v _bFlag_disable_discharge_on bFlag_disable_discharge_on `VEb  1 e 0 0 ]
+"83
+[v _bFlag_vol_bat_over_4v bFlag_vol_bat_over_4v `VEb  1 e 0 0 ]
+"84
+[v _bFlag_derating_power_temp_ex bFlag_derating_power_temp_ex `VEb  1 e 0 0 ]
+"85
+[v _bFlag_vol_bat_under_3v5 bFlag_vol_bat_under_3v5 `VEb  1 e 0 0 ]
+"86
+[v _bFlag_under_3v5_derating_power bFlag_under_3v5_derating_power `VEb  1 e 0 0 ]
+"88
+[v _bFlag_change_total_i_limit bFlag_change_total_i_limit `VEb  1 e 0 0 ]
+"89
+[v _bFlag_multi_port bFlag_multi_port `VEb  1 e 0 0 ]
+"90
+[v _bFlag_trel_over_7v bFlag_trel_over_7v `VEb  1 e 0 0 ]
+"91
+[v _bFlag_v_chg_5v bFlag_v_chg_5v `VEb  1 e 0 0 ]
+"92
+[v _bFlag_v_chg_7v bFlag_v_chg_7v `VEb  1 e 0 0 ]
+"93
+[v _bFlag_v_chg_9v bFlag_v_chg_9v `VEb  1 e 0 0 ]
+"94
+[v _bFlag_v_chg_12v bFlag_v_chg_12v `VEb  1 e 0 0 ]
+"95
+[v _bFlag_cc_src_sink_ok bFlag_cc_src_sink_ok `VEb  1 e 0 0 ]
+"96
+[v _bFlag_power_on bFlag_power_on `VEb  1 e 0 0 ]
+"97
+[v _bFlag_init_battery_volume bFlag_init_battery_volume `VEb  1 e 0 0 ]
+"98
+[v _bFlag_vsys_under_4v75 bFlag_vsys_under_4v75 `VEb  1 e 0 0 ]
+"100
+[v _bFlag_input_voltage_5v bFlag_input_voltage_5v `VEb  1 e 0 0 ]
+"101
+[v _bFlag_bat_vol_alarm bFlag_bat_vol_alarm `VEb  1 e 0 0 ]
+"103
+[v _bFlag_under_voltage bFlag_under_voltage `VEb  1 e 0 0 ]
+"104
+[v _bFlag_bat_under_voltage bFlag_bat_under_voltage `VEb  1 e 0 0 ]
+"106
+[v _bFlag_Timeslice_1sec bFlag_Timeslice_1sec `VEb  1 e 0 0 ]
+"109
+[v _bFlag_light_load_left bFlag_light_load_left `VEb  1 e 0 0 ]
+"110
+[v _bFlag_light_load_right bFlag_light_load_right `VEb  1 e 0 0 ]
+"126
+[v _underVoltageDispTimer underVoltageDispTimer `VEuc  1 e 1 0 ]
+"127
+[v _isys_grade isys_grade `VEuc  1 e 1 0 ]
+"128
+[v _last_isys_grade last_isys_grade `VEuc  1 e 1 0 ]
+"130
+[v _add_voltage_offset add_voltage_offset `VEuc  1 e 1 0 ]
+"131
+[v _counter_isys_small counter_isys_small `VEuc  1 e 1 0 ]
+"132
+[v _counter_isys_big counter_isys_big `VEuc  1 e 1 0 ]
+"133
+[v _cc_dcp_mode cc_dcp_mode `VEuc  1 e 1 0 ]
+"134
+[v _last_cc_dcp_mode last_cc_dcp_mode `VEuc  1 e 1 0 ]
+"135
+[v _idexSum idexSum `VEuc  1 e 1 0 ]
+"136
+[v _counter_dl counter_dl `VEuc  1 e 1 0 ]
+"137
+[v _counter_gl counter_gl `VEuc  1 e 1 0 ]
+"138
+[v _g_counter_cc g_counter_cc `VEuc  1 e 1 0 ]
+"139
+[v _g_counter_1sec g_counter_1sec `VEuc  1 e 1 0 ]
+"140
+[v _timer_display_full timer_display_full `VEuc  1 e 1 0 ]
+"141
+[v _indicator_light_mode indicator_light_mode `VEuc  1 e 1 0 ]
+"142
+[v _displayDataLast displayDataLast `VEuc  1 e 1 0 ]
+"143
+[v _display_cycle display_cycle `VEui  1 e 2 0 ]
+"155
+[v _restore_reg0x86 restore_reg0x86 `VEuc  1 e 1 0 ]
+"156
+[v _restore_reg0xA6 restore_reg0xA6 `VEuc  1 e 1 0 ]
+"157
+[v _restore_reg0xAC restore_reg0xAC `VEuc  1 e 1 0 ]
+"158
+[v _restore_reg0xBB restore_reg0xBB `VEuc  1 e 1 0 ]
+"159
+[v _timer_display_slice_16ms timer_display_slice_16ms `VEuc  1 e 1 0 ]
+"162
+[v _gl_timer_out gl_timer_out `VEuc  1 e 1 0 ]
+"163
+[v _dl_timer_out dl_timer_out `VEuc  1 e 1 0 ]
+"164
+[v _under_voltage_timer_out under_voltage_timer_out `VEuc  1 e 1 0 ]
+"169
+[v _battery_volume_voltage battery_volume_voltage `VEuc  1 e 1 0 ]
+"170
+[v _restore_power restore_power `VEuc  1 e 1 0 ]
+"171
+[v _restore_reg0xb1 restore_reg0xb1 `VEuc  1 e 1 0 ]
+"172
+[v _restore_reg0xb5 restore_reg0xb5 `VEuc  1 e 1 0 ]
+"173
+[v _restore_reg0xb9 restore_reg0xb9 `VEuc  1 e 1 0 ]
+"174
+[v _restore_reg0x29 restore_reg0x29 `VEuc  1 e 1 0 ]
+"176
+[v _default_power default_power `VEuc  1 e 1 0 ]
+"177
+[v _timer_derating_power timer_derating_power `VEui  1 e 2 0 ]
+"178
+[v _derating_power_mode derating_power_mode `VEuc  1 e 1 0 ]
+"179
+[v _timer_dly_chk_vsys timer_dly_chk_vsys `VEuc  1 e 1 0 ]
+"181
+[v _restore_chg_iset_vbus5v restore_chg_iset_vbus5v `VEuc  1 e 1 0 ]
+"182
+[v _restore_chg_iset_vbus9v restore_chg_iset_vbus9v `VEuc  1 e 1 0 ]
+"183
+[v _restore_chg_iset_vbus12v restore_chg_iset_vbus12v `VEuc  1 e 1 0 ]
+"186
+[v _ack_status ack_status `VEui  1 e 2 0 ]
+"187
+[v _ad_ntc ad_ntc `VEui  1 e 2 0 ]
+"190
+[v _ad_voltage_battery ad_voltage_battery `VEui  1 e 2 0 ]
+"191
+[v _ad_offset_by_power ad_offset_by_power `VEui  1 e 2 0 ]
+"194
+[v _timer_dly_chk_ovp timer_dly_chk_ovp `VEuc  1 e 1 0 ]
+"197
+[v _compareTimer compareTimer `VEuc  1 e 1 0 ]
+"198
+[v _delaySleepTimer delaySleepTimer `VEui  1 e 2 0 ]
+"199
+[v _sendTimer sendTimer `VEuc  1 e 1 0 ]
+"200
+[v _display_timer_mask display_timer_mask `VEuc  1 e 1 0 ]
+"202
+[v _forceDispTimer forceDispTimer `VEuc  1 e 1 0 ]
+"203
+[v _ledDispTimer ledDispTimer `VEuc  1 e 1 0 ]
+"204
+[v _timer_30_seconds timer_30_seconds `VEuc  1 e 1 0 ]
+"205
+[v _timer_chg_minimum timer_chg_minimum `VEuc  1 e 1 0 ]
+"206
+[v _timer_dischg_minimum timer_dischg_minimum `VEuc  1 e 1 0 ]
+"207
+[v _timer_led4_display timer_led4_display `VEuc  1 e 1 0 ]
+"208
+[v _gcounter gcounter `VEuc  1 e 1 0 ]
+"209
+[v _display_timer_10minutes display_timer_10minutes `VEui  1 e 2 0 ]
+"210
+[v _gSysTickCurrent gSysTickCurrent `VEui  1 e 2 0 ]
+"211
+[v _gSysTick gSysTick `VEui  1 e 2 0 ]
+"213
+[v _current_battery current_battery `VEui  1 e 2 0 ]
+"216
+[v _i_charge i_charge `VEui  1 e 2 0 ]
+"217
+[v _i_discharge i_discharge `VEui  1 e 2 0 ]
+"222
+[v _system_voltage system_voltage `VEui  1 e 2 0 ]
+"223
+[v _system_current system_current `VEui  1 e 2 0 ]
+"224
+[v _ad_current_vout ad_current_vout `VEui  1 e 2 0 ]
+"225
+[v _timer_get_ip53xs_status timer_get_ip53xs_status `VEuc  1 e 1 0 ]
+"233
+[v _v_input_output v_input_output `VEui  1 e 2 0 ]
+"234
+[v _ad_i_input_output ad_i_input_output `VEui  1 e 2 0 ]
+"235
+[v _gpioKeyState gpioKeyState `VEE2445  1 e 1 0 ]
+"236
+[v _gpioKeyWaitTimer gpioKeyWaitTimer `VEuc  1 e 1 0 ]
+"97 C:\Program Files (x86)\CCompiler\Compiler\data\include\FT61F14X.h
+[v _INTCON INTCON `VEuc  1 e 1 @11 ]
+"106
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"123
+[v _PORTA PORTA `VEuc  1 e 1 @12 ]
+"138
+[v _PA4 PA4 `VEb  1 e 0 @100 ]
+"141
+[v _PA7 PA7 `VEb  1 e 0 @103 ]
+"168
+[v _PORTB PORTB `VEuc  1 e 1 @13 ]
+"186
+[v _PB7 PB7 `VEb  1 e 0 @111 ]
+"213
+[v _PORTC PORTC `VEuc  1 e 1 @14 ]
+"219
+[v _PC1 PC1 `VEb  1 e 0 @113 ]
+"249
+[v _EPIF0 EPIF0 `VEuc  1 e 1 @20 ]
+"262
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"268
+[v _TRISA4 TRISA4 `VEb  1 e 0 @1124 ]
+"271
+[v _TRISA7 TRISA7 `VEb  1 e 0 @1127 ]
+"289
+[v _TRISB TRISB `VEuc  1 e 1 @141 ]
+"298
+[v _TRISB7 TRISB7 `VEb  1 e 0 @1135 ]
+"316
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+"319
+[v _TRISC1 TRISC1 `VEb  1 e 0 @1137 ]
+"475
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"506
+[v _PCKEN PCKEN `VEuc  1 e 1 @154 ]
+"718
+[v _TIM4CR1 TIM4CR1 `VEuc  1 e 1 @273 ]
+"743
+[v _TIM4IER TIM4IER `VEuc  1 e 1 @274 ]
+"755
+[v _TIM4SR TIM4SR `VEuc  1 e 1 @275 ]
+"757
+[v _T4UIF T4UIF `VEb  1 e 0 @2200 ]
+"768
+[v _TIM4EGR TIM4EGR `VEuc  1 e 1 @276 ]
+"781
+[v _TIM4CNTR TIM4CNTR `VEuc  1 e 1 @277 ]
+"786
+[v _TIM4PSCR TIM4PSCR `VEuc  1 e 1 @278 ]
+"806
+[v _TIM4ARR TIM4ARR `VEuc  1 e 1 @279 ]
+"821
+[v _PSRC0 PSRC0 `VEuc  1 e 1 @282 ]
+"826
+[v _PSRC1 PSRC1 `VEuc  1 e 1 @283 ]
+"869
+[v _WPUA WPUA `VEuc  1 e 1 @396 ]
+"873
+[v _WPUB WPUB `VEuc  1 e 1 @397 ]
+"877
+[v _WPUC WPUC `VEuc  1 e 1 @398 ]
+"1001
+[v _PSINK0 PSINK0 `VEuc  1 e 1 @410 ]
+"1005
+[v _PSINK1 PSINK1 `VEuc  1 e 1 @411 ]
+"1008
+[v _PSINK2 PSINK2 `VEuc  1 e 1 @412 ]
+"1043
+[v _WPDA WPDA `VEuc  1 e 1 @524 ]
+"1070
+[v _WPDB WPDB `VEuc  1 e 1 @525 ]
+"1096
+[v _WPDC WPDC `VEuc  1 e 1 @526 ]
+"36 D:\wksp_demo\_sdk_ip5356_ft61f145\powerBank.c
+[v _main main `(v  1 e 1 0 ]
+{
+"222
+} 0
+"101 D:\wksp_demo\_sdk_ip5356_ft61f145\app_global.c
+[v _init_timer4 init_timer4 `(v  1 e 1 0 ]
+{
+"174
+} 0
+"176
+[v _init_system_parameter init_system_parameter `(v  1 e 1 0 ]
+{
+"194
+} 0
+"1162 D:\wksp_demo\_sdk_ip5356_ft61f145\app_bms_ip53xs.c
+[v _init_ip53xs init_ip53xs `(v  1 e 1 0 ]
+{
+"1164
+[v init_ip53xs@reg_ip53xs reg_ip53xs `uc  1 a 1 10 ]
+"1165
+[v init_ip53xs@Temp2 Temp2 `uc  1 a 1 9 ]
+"1283
+} 0
+"24 D:\wksp_demo\_sdk_ip5356_ft61f145\bsp_ip53xs.c
+[v _ip53xs_writeByte ip53xs_writeByte `(uc  1 e 1 0 ]
+{
+[v ip53xs_writeByte@deviceAddr deviceAddr `uc  1 a 1 wreg ]
+[v ip53xs_writeByte@deviceAddr deviceAddr `uc  1 a 1 wreg ]
+[v ip53xs_writeByte@regAddr regAddr `uc  1 p 1 5 ]
+[v ip53xs_writeByte@sendByte sendByte `uc  1 p 1 6 ]
+"26
+[v ip53xs_writeByte@deviceAddr deviceAddr `uc  1 a 1 7 ]
+"52
+} 0
+"54
+[v _ip53xs_readByte ip53xs_readByte `(uc  1 e 1 0 ]
+{
+[v ip53xs_readByte@deviceAddr deviceAddr `uc  1 a 1 wreg ]
+"56
+[v ip53xs_readByte@readByte readByte `uc  1 a 1 6 ]
+"54
+[v ip53xs_readByte@deviceAddr deviceAddr `uc  1 a 1 wreg ]
+[v ip53xs_readByte@regAddr regAddr `uc  1 p 1 5 ]
+"57
+[v ip53xs_readByte@deviceAddr deviceAddr `uc  1 a 1 7 ]
+"87
+} 0
+"88 D:\wksp_demo\_sdk_ip5356_ft61f145\bsp_i2c.c
+[v _i2c_writeByte i2c_writeByte `(uc  1 e 1 0 ]
+{
+[v i2c_writeByte@sendByte sendByte `uc  1 a 1 wreg ]
+"90
+[v i2c_writeByte@i i `uc  1 a 1 4 ]
+"88
+[v i2c_writeByte@sendByte sendByte `uc  1 a 1 wreg ]
+"90
+[v i2c_writeByte@sendByte sendByte `uc  1 a 1 3 ]
+"119
+} 0
+"40
+[v _i2c_chk_ack i2c_chk_ack `(uc  1 e 1 0 ]
+{
+"47
+[v i2c_chk_ack@getAckTime getAckTime `uc  1 a 1 2 ]
+"64
+} 0
+"29
+[v _i2c_stop i2c_stop `(v  1 e 1 0 ]
+{
+"37
+} 0
+"16
+[v _i2c_start i2c_start `(v  1 e 1 0 ]
+{
+"26
+} 0
+"77
+[v _i2c_send_nack i2c_send_nack `(v  1 e 1 0 ]
+{
+"86
+} 0
+"121
+[v _i2c_readByte i2c_readByte `(uc  1 e 1 0 ]
+{
+"124
+[v i2c_readByte@readByte readByte `uc  1 a 1 3 ]
+"123
+[v i2c_readByte@i i `uc  1 a 1 2 ]
+"148
+} 0
+"59 D:\wksp_demo\_sdk_ip5356_ft61f145\app_global.c
+[v _init_gpio init_gpio `(v  1 e 1 0 ]
+{
+"93
+} 0
+"1024 D:\wksp_demo\_sdk_ip5356_ft61f145\app_bms_ip53xs.c
+[v _get_p_ext_int_status get_p_ext_int_status `(v  1 e 1 0 ]
+{
+"1026
+[v get_p_ext_int_status@counter counter `uc  1 s 1 counter ]
+"1069
+} 0
+"25 D:\wksp_demo\_sdk_ip5356_ft61f145\app_global.c
+[v __dly_ms _dly_ms `(v  1 e 1 0 ]
+{
+[v __dly_ms@timer timer `uc  1 a 1 wreg ]
+"27
+[v __dly_ms@b b `uc  1 a 1 4 ]
+[v __dly_ms@a a `uc  1 a 1 3 ]
+"25
+[v __dly_ms@timer timer `uc  1 a 1 wreg ]
+"28
+[v __dly_ms@timer timer `uc  1 a 1 2 ]
+"35
+} 0
+"17
+[v __dly_us _dly_us `(v  1 e 1 0 ]
+{
+[v __dly_us@Time Time `uc  1 a 1 wreg ]
+"19
+[v __dly_us@a a `uc  1 a 1 1 ]
+"17
+[v __dly_us@Time Time `uc  1 a 1 wreg ]
+"20
+[v __dly_us@Time Time `uc  1 a 1 0 ]
+"24
+} 0
+"64 D:\wksp_demo\_sdk_ip5356_ft61f145\app_display.c
+[v _app_display_all app_display_all `(v  1 e 1 0 ]
+{
+"66
+[v app_display_all@i i `uc  1 a 1 6 ]
+[v app_display_all@j j `uc  1 a 1 5 ]
+"301
+} 0
+"4 C:\Program Files (x86)\CCompiler\Compiler\data\sources\common\lbmod.c
+[v ___lbmod __lbmod `(uc  1 e 1 0 ]
+{
+[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
+"6
+[v ___lbmod@rem rem `uc  1 a 1 4 ]
+"7
+[v ___lbmod@counter counter `uc  1 a 1 3 ]
+"4
+[v ___lbmod@dividend dividend `uc  1 a 1 wreg ]
+[v ___lbmod@divisor divisor `uc  1 p 1 0 ]
+"9
+[v ___lbmod@dividend dividend `uc  1 a 1 2 ]
+"18
+} 0
+"4 C:\Program Files (x86)\CCompiler\Compiler\data\sources\common\lbdiv.c
+[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
+{
+[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
+"6
+[v ___lbdiv@quotient quotient `uc  1 a 1 3 ]
+"7
+[v ___lbdiv@counter counter `uc  1 a 1 2 ]
+"4
+[v ___lbdiv@dividend dividend `uc  1 a 1 wreg ]
+[v ___lbdiv@divisor divisor `uc  1 p 1 0 ]
+"9
+[v ___lbdiv@dividend dividend `uc  1 a 1 1 ]
+"26
+} 0
+"224 D:\wksp_demo\_sdk_ip5356_ft61f145\powerBank.c
+[v _ISR ISR `II(v  1 e 1 0 ]
+{
+"246
+} 0

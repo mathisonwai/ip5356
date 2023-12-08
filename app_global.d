@@ -1,0 +1,1 @@
+ app_global.d  app_global.p1:  app_global.c app_bms_ip53xs.h app_global.h bsp_io_uart.h bsp_i2c.h bsp_ip53xs.h app_cfg.h

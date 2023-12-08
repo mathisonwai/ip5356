@@ -1,0 +1,3645 @@
+
+# 1 "app_bms_ip53xx.c"
+
+# 10 "app_cfg.h"
+typedef unsigned char boolean;
+typedef unsigned char BOOL;
+typedef unsigned char BYTE;
+typedef unsigned char INT8U;
+typedef signed char INT8S;
+typedef unsigned int INT16U;
+typedef signed int INT16S;
+typedef unsigned long INT32U;
+typedef signed long INT32S;
+typedef float FP32;
+typedef double FP64;
+typedef unsigned int clock_time_t;
+typedef unsigned char u8_t;
+typedef signed char s8_t;
+
+
+typedef unsigned int u16_t;
+
+
+typedef signed int s16_t;
+typedef unsigned long int u32_t;
+typedef signed long int s32_t;
+typedef unsigned char u8;
+typedef signed char s8;
+typedef unsigned int u16;
+typedef signed int s16;
+typedef unsigned long u32;
+typedef signed long s32;
+
+typedef unsigned char uchar;
+typedef unsigned int uint;
+typedef unsigned long ulong;
+
+typedef unsigned short WORD;
+typedef unsigned long DWORD;
+
+typedef const signed char sc8;
+typedef const signed int sc16;
+typedef const signed long sc32;
+
+typedef const unsigned char uc8;
+typedef const unsigned int uc16;
+typedef const unsigned long uc32;
+
+# 71
+typedef enum _GPIO_KEY_STATE
+{
+GPIO_KEY_STATE_IDLE,
+GPIO_KEY_STATE_JITTER,
+GPIO_KEY_STATE_PRESS_DOWN,
+GPIO_KEY_STATE_CP
+
+} GPIO_KEY_STATE;
+
+# 14 "app_global.h"
+extern volatile bit bFlag_is_exception_full;
+extern volatile bit bFlag_gSysTick_change;
+extern volatile bit bFlag_chg_or_dischg;
+extern volatile bit bFlag_charge_on;
+extern volatile bit bFlag_reg0xFD_bitx;
+extern volatile bit bFlag_charge_qc;
+extern volatile bit bFlag_in_small_current_mode;
+extern volatile bit bFlag_sink_pd;
+extern volatile bit bFlag_derating_power_non_pd_9v;
+extern volatile bit bFlag_double_key;
+extern volatile bit bFlag_discharge_qc;
+extern volatile bit bFlag_discharge_pd;
+extern volatile bit bFlag_ovp_in_pd_9v;
+extern volatile bit bFlag_under_3v3;
+extern volatile bit bFlag_Timeslice_16ms;
+extern volatile bit bFlag_Timeslice_display;
+extern volatile bit bFlag_led_blue_always_on;
+extern volatile bit bFlag_Flash;
+
+extern volatile bit bFlag_disable_send_cmd;
+extern volatile bit bFlag_p_ext_int_is_high;
+extern volatile bit bFlag_isys_over_1A5;
+
+extern volatile bit bFlag_light_load;
+extern volatile bit bFlag_Bat_CC;
+extern volatile bit bFlag_ad_voltage_battery_update;
+
+extern volatile bit bFlag_is_breathing_mode;
+extern volatile bit bFlag_temp_alarm;
+extern volatile bit bFlag_enable_charge;
+extern volatile bit bFlag_enable_discharge;
+extern volatile bit bFlag_temp_exception_over_chg;
+extern volatile bit bFlag_temp_exception_chg;
+extern volatile bit bFlag_temp_exception_dischg;
+extern volatile bit bFlag_ad_ntc_update;
+extern volatile bit bFlag_battery_is_low;
+extern volatile bit bFlag_shutdown_eta;
+extern volatile bit bFlag_reverse;
+
+extern volatile bit bFlag_charge_complete;
+extern volatile bit bFlag_bt_standby;
+extern volatile bit bFlag_init_ip53xx;
+extern volatile bit bFlag_charge_ext;
+
+extern volatile bit bFlag_Timeslice_1ms;
+extern volatile bit bFlag_is_trickle_charge;
+extern volatile bit bFlag_charging_from_empty;
+extern volatile bit bFlag_Calc_Coulomb_Counter;
+extern volatile bit bFlag_vsys_over_6v3;
+extern volatile bit bFlag_vsys_over_12v8;
+extern volatile bit bFlag_vsys_under_4v5;
+extern volatile bit bFlag_in_scp_A3;
+extern volatile bit bFlag_adjust_scp_ocp_5A;
+extern volatile bit bFlag_adjust_scp_ocp_4A5;
+extern volatile bit bFlag_typec_in;
+extern volatile bit bFlag_usb_a1_in;
+extern volatile bit bFlag_usb_a2_in;
+extern volatile bit bFlag_all_led_is_off;
+
+extern volatile bit bFlag_disable_quick_discharge;
+extern volatile bit bFlag_disable_quick_charge;
+extern volatile bit bFlag_input_ovp;
+extern volatile bit bFlag_ocp;
+extern volatile bit bFlag_short_circuit;
+extern volatile bit bFlag_disable_charge_on;
+extern volatile bit bFlag_disable_discharge_on;
+extern volatile bit bFlag_vol_bat_over_4v;
+extern volatile bit bFlag_derating_power_temp_ex;
+extern volatile bit bFlag_vol_bat_under_3v5;
+extern volatile bit bFlag_under_3v5_derating_power;
+
+extern volatile bit bFlag_change_total_i_limit;
+extern volatile bit bFlag_multi_port;
+extern volatile bit bFlag_trel_over_7v;
+extern volatile bit bFlag_v_chg_5v;
+extern volatile bit bFlag_v_chg_7v;
+extern volatile bit bFlag_v_chg_9v;
+extern volatile bit bFlag_v_chg_12v;
+extern volatile bit bFlag_cc_src_sink_ok;
+extern volatile bit bFlag_power_on;
+extern volatile bit bFlag_init_battery_volume;
+extern volatile bit bFlag_vsys_under_4v75;
+
+extern volatile bit bFlag_input_voltage_5v;
+extern volatile bit bFlag_bat_vol_alarm;
+
+extern volatile bit bFlag_under_voltage;
+extern volatile bit bFlag_bat_under_voltage;
+
+extern volatile bit bFlag_Timeslice_1sec;
+
+# 117
+extern volatile unsigned char underVoltageDispTimer;
+extern volatile unsigned char isys_grade;
+extern volatile unsigned char last_isys_grade;
+
+extern volatile unsigned char add_voltage_offset;
+extern volatile unsigned char counter_isys_small;
+extern volatile unsigned char counter_isys_big;
+extern volatile unsigned char cc_dcp_mode;
+extern volatile unsigned char last_cc_dcp_mode;
+extern volatile unsigned char idexSum;
+extern volatile unsigned char counter_dl;
+extern volatile unsigned char counter_gl;
+extern volatile unsigned char g_counter_cc;
+extern volatile unsigned char timer_display_full;
+extern volatile unsigned char indicator_light_mode;
+extern volatile unsigned char displayDataLast;
+extern volatile unsigned int display_cycle;
+
+# 145
+extern volatile unsigned char restore_reg0x86;
+extern volatile unsigned char restore_reg0xA6;
+extern volatile unsigned char restore_reg0xAC;
+extern volatile unsigned char restore_reg0xBB;
+extern volatile unsigned char timer_display_slice_16ms;
+
+
+extern volatile unsigned char gl_timer_out;
+extern volatile unsigned char dl_timer_out;
+extern volatile unsigned char under_voltage_timer_out;
+
+
+
+
+extern volatile unsigned char battery_volume_voltage;
+extern volatile unsigned char restore_power;
+extern volatile unsigned char restore_reg0xb1;
+extern volatile unsigned char restore_reg0xb5;
+extern volatile unsigned char restore_reg0xb9;
+extern volatile unsigned char restore_reg0x29;
+
+extern volatile unsigned char default_power;
+extern volatile unsigned int timer_derating_power;
+extern volatile unsigned char derating_power_mode;
+extern volatile unsigned char timer_dly_chk_vsys;
+
+extern volatile unsigned char restore_chg_iset_vbus5v;
+extern volatile unsigned char restore_chg_iset_vbus9v;
+extern volatile unsigned char restore_chg_iset_vbus12v;
+
+
+extern volatile unsigned int ack_status;
+extern volatile unsigned int ad_ntc;
+
+
+extern volatile unsigned int ad_voltage_battery;
+extern volatile unsigned int ad_offset_by_power;
+extern volatile unsigned char led_display_data;
+extern volatile unsigned char displayData;
+extern volatile unsigned char timer_dly_chk_ovp;
+
+
+extern volatile unsigned char compareTimer;
+extern volatile unsigned int delaySleepTimer;
+extern volatile unsigned char sendTimer;
+extern volatile unsigned char display_timer_mask;
+
+extern volatile unsigned char forceDispTimer;
+extern volatile unsigned char ledDispTimer;
+extern volatile unsigned char timer_30_seconds;
+extern volatile unsigned char timer_chg_minimum;
+extern volatile unsigned char timer_dischg_minimum;
+extern volatile unsigned char timer_led4_display;
+extern volatile unsigned char gcounter;
+extern volatile unsigned int display_timer_10minutes;
+extern volatile unsigned int gSysTickCurrent;
+extern volatile unsigned int gSysTick;
+
+extern volatile unsigned int current_battery;
+
+extern volatile unsigned int ad_voltage_battery;
+extern volatile unsigned int i_charge;
+extern volatile unsigned int i_discharge;
+
+
+
+
+extern volatile unsigned int system_voltage;
+extern volatile unsigned int system_current;
+extern volatile unsigned char timer_get_ip53xs_status;
+
+# 222
+extern volatile unsigned int v_input_output;
+extern volatile unsigned int ad_i_input_output;
+extern volatile GPIO_KEY_STATE gpioKeyState;
+extern volatile unsigned char gpioKeyWaitTimer;
+
+# 243
+void _dly_us(unsigned char Time);
+void _dly_ms(unsigned char timer);
+void init_gpio(void);
+void init_wdt(void);
+void init_timer4(void);
+void init_system_parameter(void) ;
+
+# 13 "bsp_i2c.h"
+void i2c_start(void);
+void i2c_stop(void);
+unsigned char i2c_chk_ack(void);
+void i2c_send_ack(void);
+void i2c_send_nack(void);
+unsigned char i2c_writeByte(unsigned char sendByte);
+unsigned char i2c_readByte(void);
+
+# 9 "bsp_ip53xs.h"
+BOOL ip53xs_writeByte(unsigned char deviceAddr, unsigned char regAddr, unsigned char sendByte);
+unsigned char ip53xs_readByte(unsigned char deviceAddr, unsigned char regAddr);
+
+# 482 "app_bms_ip53xs.h"
+void is_vsys_under_4v75(void);
+void get_0xea_0xa9(void);
+void get_voltage_battery(void);
+void get_FLAG0_status(void);
+void get_FLAG1_status(void);
+void get_system_voltage(void);
+void calc_ad_offset_by_power(void);
+void calc_ad_offset_by_power_dischg(void);
+void get_system_current(void);
+
+
+
+void is_ovp_pd_9v(void);
+void is_ovp_qc_12v(void);
+void is_ovp_6v3(void);
+void is_scp_over_4v5(void);
+void get_p_ext_int_status(void);
+
+
+void is_chg_or_dischg(void);
+
+
+
+void init_Battery_Volume(void);
+
+
+
+void get_quick_charge_states(void);
+void get_pd_charge_states(void);
+void get_light_load_status(void);
+void get_small_current_mode_status(void);
+
+void disable_quick_charge(void);
+void enable_quick_charge(void);
+void disable_DPDM_quick_charge(void);
+void disable_quick_discharge(void);
+void enable_quick_discharge(void);
+
+void enable_charger_on(void);
+void disable_charger_on(void);
+void enable_discharger_on(void);
+void disable_discharger_on(void);
+
+void derating_power_bat_under_3v5(void);
+void derating_power_temp_exception(void);
+void derating_power_temp_exception_again(void);
+void derating_power_scp_over_4v5(void);
+
+void restore_power_no_in_scp_A3(void);
+void restore_power_temp_normal(void);
+void restore_total_current_limiting(void);
+void is_ocp_short_circuit(void);
+void is_under_voltage(void);
+void ovp_input_proc(void);
+
+void get_multi_port_status(void);
+void vol_bat_is_over_4v(void);
+void vol_bat_is_over_3v5(void);
+void vol_bat_is_under_3v5(void);
+void get_protocol_indication(void);
+
+void get_type_c_state(void);
+void set_force_standby_mode(void);
+void get_v_chg_state(void);
+void get_cc_state(void);
+void is_charge_complete(void);
+void get_0xE8_0xA6(void);
+void is_sink_pd_ok(void);
+void derating_power_non_pd_9v(void);
+void restore_power_non_pd_9v(void);
+void restore_reg0xAC_in_scp(void);
+void restore_reg0xAC_in_scp(void);
+void get_isys_grade(void);
+void in_scp_add_voltage_offset(void);
+void derating_power_bat_under_3v5_no_reset(void);
+void get_i_charge(void);
+void get_i_discharge(void);
+void init_battery_volume(void);
+void get_i_trickle_status(void);
+void get_battery_volume(void);
+void get_cc_status(void);
+void get_dcp_status(void);
+void ipc_proc(void);
+void reset_ipc_default(void);
+void disable_DP_quick_charge(void);
+void enable_DP_quick_charge(void);
+
+# 4 "bsp_io_uart.h"
+void io_uart_tx(unsigned char sendByte);
+
+# 51 "app_bms_ip53xx.c"
+static void init_ip53xx(void)
+{
+unsigned char reg_ip53xs;
+
+# 59
+if (bFlag_power_on)
+{
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x29);
+restore_reg0x29 = reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0xA6);
+restore_reg0xA6 = reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0xAC);
+restore_reg0xAC = reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0xBB);
+restore_reg0xBB = reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0XB1);
+restore_reg0xb1 = reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0XB5);
+restore_reg0xb5 = reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0XB9);
+restore_reg0xb9 = reg_ip53xs;
+
+bFlag_power_on = 0;
+}
+else
+{
+restore_total_current_limiting();
+}
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, (0x03));
+
+
+reg_ip53xs &= (~(0x04));
+ip53xs_writeByte(0xE8, (0x03), reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x25);
+reg_ip53xs |= 0x20;
+ip53xs_writeByte(0xE8, 0x25, reg_ip53xs);
+
+# 127
+derating_power_non_pd_9v();
+bFlag_sink_pd = 0;
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, (0x0F));
+reg_ip53xs &= 0xE1;
+reg_ip53xs |= (0x02);
+ip53xs_writeByte(0xE8, (0x0F), reg_ip53xs);
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, (0x33));
+reg_ip53xs &= 0xDF;
+ip53xs_writeByte(0xE8, (0x33), reg_ip53xs);
+_dly_ms(10);
+reg_ip53xs = ip53xs_readByte(0xE8, (0x33));
+reg_ip53xs &= 0xDF;
+reg_ip53xs |= (0x20);
+ip53xs_writeByte(0xE8, (0x33), reg_ip53xs);
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x31);
+reg_ip53xs &= 0xFC;
+ip53xs_writeByte(0xE8, 0x31, reg_ip53xs);
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x33);
+reg_ip53xs |= 0x20;
+ip53xs_writeByte(0xE8, 0x33, reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x0B);
+reg_ip53xs &= 0xF8;
+ip53xs_writeByte(0xE8, 0x0B, reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x0C);
+reg_ip53xs &= 0xC7;
+ip53xs_writeByte(0xE8, 0x0C, reg_ip53xs);
+
+# 209
+reg_ip53xs = ip53xs_readByte(0xEA, 0xFC);
+
+
+
+
+ip53xs_writeByte(0xEA, 0xFC, reg_ip53xs);
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0xFD);
+ip53xs_writeByte(0xEA, 0xFD, reg_ip53xs);
+
+
+
+if (bFlag_vol_bat_under_3v5)
+{
+
+derating_power_bat_under_3v5_no_reset();
+}
+
+# 235
+if (bFlag_temp_exception_chg)
+{
+
+# 243
+reg_ip53xs = ip53xs_readByte(0xEA, 0x91);
+
+reg_ip53xs &= 0x0C;
+
+
+
+if (0x04 != reg_ip53xs)
+{
+
+disable_DP_quick_charge();
+bFlag_disable_quick_charge = 1;
+
+# 263
+}
+
+disable_DPDM_quick_charge();
+derating_power_temp_exception();
+timer_derating_power = 255;
+
+}
+else
+{
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x91);
+
+reg_ip53xs &= 0x0C;
+
+
+if (0x04 == reg_ip53xs)
+{
+
+enable_DP_quick_charge();
+bFlag_disable_quick_charge = 0;
+}
+}
+
+# 303
+reg_ip53xs = ip53xs_readByte(0xEA, 0x0B);
+reg_ip53xs &= 0x8F;
+reg_ip53xs |= 0x60;
+ip53xs_writeByte(0xEA, 0x0B, reg_ip53xs);
+
+# 317
+reg_ip53xs = ip53xs_readByte(0xE8, 0x8F);
+reg_ip53xs &= 0xF7;
+
+ip53xs_writeByte(0xE8, 0x8F, reg_ip53xs);
+
+# 330
+reg_ip53xs = ip53xs_readByte(0xEA, 0x03);
+reg_ip53xs &= 0xFE;
+ip53xs_writeByte(0xEA, 0x03, reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0xD0);
+reg_ip53xs &= 0xFB;
+ip53xs_writeByte(0xE8, 0xD0, reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x39);
+reg_ip53xs &= 0x1F;
+reg_ip53xs |= 0x40;
+ip53xs_writeByte(0xEA, 0x39, reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x90);
+reg_ip53xs &= 0xFC;
+reg_ip53xs |= 0x02;
+ip53xs_writeByte(0xE8, 0x90, reg_ip53xs);
+
+# 363
+reg_ip53xs = ip53xs_readByte(0xE8, 0x1C);
+reg_ip53xs &= 0xFE;
+ip53xs_writeByte(0xE8, 0x1C, reg_ip53xs);
+
+# 373
+reg_ip53xs = ip53xs_readByte(0xE8, 0x1D);
+reg_ip53xs &= 0xFE;
+ip53xs_writeByte(0xE8, 0x1D, reg_ip53xs);
+
+# 381
+reg_ip53xs = ip53xs_readByte(0xE8, 0x00);
+reg_ip53xs &= 0xF3;
+reg_ip53xs |= (0x04);
+
+ip53xs_writeByte(0xE8, 0x00, reg_ip53xs);
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x01);
+reg_ip53xs &= 0xF8;
+reg_ip53xs |= (0x04);
+ip53xs_writeByte(0xE8, 0x01, reg_ip53xs);
+}
+
+# 446
+void get_quick_charge_states(void)
+{
+
+unsigned char reg_ip53xs;
+unsigned char iitmp;
+static unsigned char counter;
+
+if (bFlag_charge_on)
+{
+
+bFlag_discharge_qc = 0;
+reg_ip53xs = ip53xs_readByte(0xEA, (0xD4));
+iitmp = (reg_ip53xs & 0x07);
+
+if (bFlag_charge_qc)
+{
+if (0x03 != iitmp)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_charge_qc = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (0x03 == iitmp)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_charge_qc = 1;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+else
+{
+
+bFlag_charge_qc = 0;
+reg_ip53xs = ip53xs_readByte(0xEA, (0xCD));
+iitmp = (reg_ip53xs & (0x40));
+
+if (bFlag_discharge_qc)
+{
+if (0 == iitmp)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_discharge_qc = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (iitmp)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_discharge_qc = 1;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+}
+
+# 538
+void get_pd_charge_states(void)
+{
+
+unsigned char reg_ip53xs;
+unsigned char iitmp;
+static unsigned char counter;
+
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0xC2);
+iitmp = (reg_ip53xs & (0x80));
+
+if (bFlag_discharge_pd)
+{
+if (0 == iitmp)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_discharge_pd = 0;
+bFlag_ovp_in_pd_9v = 0;
+if (bFlag_disable_discharge_on)
+{
+if (0 == bFlag_temp_exception_dischg)
+{
+
+enable_discharger_on();
+}
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (iitmp)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_discharge_pd = 1;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+
+
+void get_input_voltage_status(void)
+{
+unsigned char reg_ip53xs;
+static unsigned char counter;
+reg_ip53xs = ip53xs_readByte(0xEA, 0XE8);
+
+reg_ip53xs &= 0x30;
+
+if (bFlag_input_voltage_5v)
+{
+if (0 != reg_ip53xs)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_input_voltage_5v = 0;
+cc_dcp_mode = 0;
+last_cc_dcp_mode = 0;
+reset_ipc_default();
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (0 == reg_ip53xs)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_input_voltage_5v = 1;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+# 660
+void get_cc_status(void)
+{
+unsigned char reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0xDF);
+reg_ip53xs &= 0x07;
+cc_dcp_mode &= 0xF0;
+cc_dcp_mode |= reg_ip53xs;
+
+# 689
+}
+
+
+
+void get_dcp_status(void)
+{
+unsigned char reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0xAD);
+cc_dcp_mode &= 0x0F;
+
+if (reg_ip53xs & 0x01)
+{
+cc_dcp_mode |= 0x10;
+}
+else if (reg_ip53xs & 0x02)
+{
+cc_dcp_mode |= 0x20;
+}
+else if (reg_ip53xs & 0x04)
+{
+cc_dcp_mode |= 0x40;
+}
+else if (reg_ip53xs & 0xF0)
+{
+cc_dcp_mode |= 0x80;
+}
+}
+
+# 727
+void ipc_proc(void)
+{
+unsigned char reg_ip53xs;
+unsigned char reg_ip53xs_read;
+unsigned char reg0x29_2F1;
+unsigned char reg0x29_4F1;
+unsigned char reg0x29_8F1;
+
+# 739
+reg_ip53xs_read = ip53xs_readByte(0xE8, 0x29);
+reg_ip53xs = (restore_reg0x29 & 0x7F);
+reg_ip53xs >>= 1;
+reg0x29_2F1 = reg_ip53xs;
+reg_ip53xs >>= 1;
+reg0x29_4F1 = reg_ip53xs;
+reg_ip53xs >>= 1;
+reg0x29_8F1 = reg_ip53xs;
+
+switch (cc_dcp_mode & 0x0F)
+{
+case 0:
+if (cc_dcp_mode & 0x10)
+{
+
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_2F1;
+reg_ip53xs -= reg0x29_8F1;
+
+
+
+if (reg_ip53xs_read != reg_ip53xs)
+{
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+}
+else if (0 == bFlag_temp_exception_chg)
+{
+if (cc_dcp_mode & 0x20)
+{
+
+
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_4F1;
+}
+else if (cc_dcp_mode & 0x40)
+{
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_8F1;
+
+
+}
+else
+{
+reg_ip53xs = restore_reg0x29;
+}
+
+if (reg_ip53xs_read != reg_ip53xs)
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+
+break;
+case 1:
+
+if (cc_dcp_mode & 0x10)
+{
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_2F1;
+reg_ip53xs -= reg0x29_8F1;
+
+
+
+
+if (reg_ip53xs_read != reg_ip53xs)
+{
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+}
+else if (0 == bFlag_temp_exception_chg)
+{
+if (cc_dcp_mode & 0x20)
+{
+
+
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_4F1;
+}
+else if (cc_dcp_mode & 0x40)
+{
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_8F1;
+
+
+}
+else
+{
+reg_ip53xs = restore_reg0x29;
+}
+
+if (reg_ip53xs_read != reg_ip53xs)
+{
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+}
+
+break;
+case 3:
+
+if (cc_dcp_mode & 0x10)
+{
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_2F1;
+reg_ip53xs -= reg0x29_8F1;
+
+
+
+
+if (reg_ip53xs_read != reg_ip53xs)
+{
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+}
+else if (0 == bFlag_temp_exception_chg)
+{
+if (cc_dcp_mode & 0x20)
+{
+
+
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_4F1;
+}
+else if (cc_dcp_mode & 0x40)
+{
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_8F1;
+
+
+}
+else
+{
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_2F1;
+}
+
+if (reg_ip53xs_read != reg_ip53xs)
+{
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+}
+
+break;
+case 7:
+if (cc_dcp_mode & 0x10)
+{
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_2F1;
+reg_ip53xs -= reg0x29_8F1;
+
+
+
+
+if (reg_ip53xs_read != reg_ip53xs)
+{
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+}
+else if (0 == bFlag_temp_exception_chg)
+{
+if (cc_dcp_mode & 0x20)
+{
+
+
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_4F1;
+}
+else if (cc_dcp_mode & 0x40)
+{
+
+reg_ip53xs = restore_reg0x29;
+reg_ip53xs -= reg0x29_8F1;
+
+
+}
+else
+{
+reg_ip53xs = restore_reg0x29;
+}
+
+if (reg_ip53xs_read != reg_ip53xs)
+{
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+}
+
+break;
+
+default:
+break;
+}
+
+}
+
+void reset_ipc_default(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xE8, 0x29);
+if (restore_reg0x29 != reg_ip53xs)
+{
+reg_ip53xs = restore_reg0x29;
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+}
+
+
+
+void is_chg_or_dischg(void)
+{
+unsigned char iitmp;
+unsigned char iitmp2;
+unsigned char reg_ip53xs;
+static unsigned char counter;
+
+reg_ip53xs = ip53xs_readByte(0xEA, (0xC4));
+iitmp2 = (reg_ip53xs & (0x10));
+
+reg_ip53xs = ip53xs_readByte(0xEA, (0xD0));
+iitmp = (reg_ip53xs & (0x80));
+
+if (bFlag_charge_on)
+{
+delaySleepTimer = 3;
+
+if (0 == (iitmp2 && iitmp))
+{
+bFlag_chg_or_dischg = 0;
+if (++counter > 5)
+{
+counter = 0;
+bFlag_charge_on = 0;
+bFlag_charge_qc = 0;
+bFlag_cc_src_sink_ok = 0;
+bFlag_input_ovp = 0;
+bFlag_charge_ext = 0;
+g_counter_cc = 0;
+
+cc_dcp_mode = 0;
+last_cc_dcp_mode = 0;
+reset_ipc_default();
+
+}
+}
+else
+{
+counter = 0;
+if (iitmp2 && iitmp)
+{
+bFlag_chg_or_dischg = 1;
+}
+}
+
+get_input_voltage_status();
+
+}
+else
+{
+if (iitmp2 && iitmp)
+{
+bFlag_chg_or_dischg = 1;
+if (++counter > 2)
+{
+counter = 0;
+bFlag_charge_on = 1;
+bFlag_charge_qc = 0;
+bFlag_vsys_over_12v8 = 0;
+bFlag_vsys_over_6v3 = 0;
+bFlag_ovp_in_pd_9v = 0;
+display_timer_10minutes = (1200);
+timer_dly_chk_ovp = 31;
+if (bFlag_all_led_is_off)
+{
+bFlag_all_led_is_off = 0;
+
+
+{
+
+forceDispTimer = 5;
+bFlag_reverse = 0;
+display_cycle = 125;
+ledDispTimer = (10);
+}
+
+# 1036
+}
+}
+}
+else
+{
+counter = 0;
+{
+if (0 == bFlag_light_load)
+{
+ledDispTimer = (10);
+if (0 == bFlag_in_small_current_mode)
+{
+delaySleepTimer = (120);
+}
+}
+else
+{
+
+if (bFlag_typec_in)
+{
+delaySleepTimer = (120);
+}
+
+# 1063
+}
+}
+if (0 == (iitmp2 && iitmp))
+{
+bFlag_chg_or_dischg = 0;
+}
+}
+}
+}
+
+# 1082
+void is_charge_complete(void)
+{
+unsigned char reg_ip53xs;
+unsigned char iitmp;
+static unsigned char counter;
+reg_ip53xs = ip53xs_readByte(0xEA, (0xE9));
+
+iitmp = ((reg_ip53xs >> 4) & 0x07);
+
+if (bFlag_charge_complete)
+{
+if ((0 != iitmp) && (5 != iitmp))
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_charge_complete = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (5 == iitmp)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_charge_complete = 1;
+displayData = 100;
+timer_display_full = 0;
+timer_dischg_minimum = 40;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+
+void get_p_ext_int_status(void)
+{
+static unsigned char counter;
+
+
+
+if (bFlag_p_ext_int_is_high)
+{
+if (!PC0)
+{
+if (++counter > 3)
+{
+counter = 0;
+bFlag_p_ext_int_is_high = 0;
+bFlag_in_small_current_mode = 0;
+P_POWER_EN_SET;
+P_POWER_EN_INPUT();
+bFlag_charge_on = 0;
+led_display_data = SEG_ALL_OFF;
+ledDispTimer = 0;
+bFlag_all_led_is_off = 1;
+if (delaySleepTimer > 1)
+{
+delaySleepTimer = 1;
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (PC0)
+{
+if (++counter > 7)
+{
+counter = 0;
+
+# 1171
+_dly_ms(100);
+if (!PC0)
+{
+return;
+}
+
+bFlag_p_ext_int_is_high = 1;
+delaySleepTimer = (120);
+I2CClock_Config();
+I2C_Init();
+I2C_Master_Clear_Error();
+
+if (bFlag_all_led_is_off)
+{
+bFlag_all_led_is_off = 0;
+
+if (displayData)
+{
+
+forceDispTimer = 5;
+bFlag_reverse = 0;
+display_cycle = 125;
+ledDispTimer = (10);
+}
+else
+{
+
+ledDispTimer = (10);
+}
+}
+
+gl_timer_out = 0;
+dl_timer_out = 0;
+under_voltage_timer_out = 0;
+bFlag_ocp = 0;
+bFlag_short_circuit = 0;
+bFlag_under_voltage = 0;
+counter_gl = 0;
+counter_dl = 0;
+bFlag_temp_alarm = 0;
+
+bFlag_temp_exception_dischg = 0;
+bFlag_in_small_current_mode = 0;
+bFlag_vsys_over_12v8 = 0;
+bFlag_input_ovp = 0;
+bFlag_adjust_scp_ocp_5A = 0;
+bFlag_adjust_scp_ocp_4A5 = 0;
+bFlag_v_chg_5v = 0;
+bFlag_v_chg_7v = 0;
+bFlag_v_chg_9v = 0;
+bFlag_v_chg_12v = 0;
+bFlag_vsys_under_4v5 = 0;
+bFlag_charge_ext = 0;
+bFlag_cc_src_sink_ok = 0;
+bFlag_disable_discharge_on = 0;
+bFlag_disable_charge_on = 0;
+if (bFlag_is_exception_full)
+{
+displayData = 81;
+timer_led4_display = 100;
+timer_chg_minimum = 60;
+bFlag_is_exception_full = 0;
+}
+bFlag_in_scp_A3 = 0;
+
+
+bFlag_discharge_pd = 0;
+bFlag_ovp_in_pd_9v = 0;
+bFlag_discharge_qc = 0;
+
+
+cc_dcp_mode = 0;
+last_cc_dcp_mode = 0;
+
+if (PC0)
+{
+init_ip53xx();
+}
+
+if (!bFlag_init_battery_volume)
+{
+bFlag_init_battery_volume = 1;
+init_battery_volume();
+}
+
+# 1260
+P_POWER_EN_OUT();
+P_POWER_EN_CLR;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+
+
+void get_system_voltage(void)
+{
+unsigned char reg_ip53xs;
+unsigned int itmp_16bits;
+
+reg_ip53xs = ip53xs_readByte(0xEA, (0x53));
+itmp_16bits = reg_ip53xs;
+itmp_16bits <<= 8;
+reg_ip53xs = ip53xs_readByte(0xEA, (0x52));
+itmp_16bits |= reg_ip53xs;
+system_voltage = itmp_16bits;
+}
+
+void get_system_current(void)
+{
+unsigned char reg_ip53xs;
+unsigned int itmp_16bits;
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, (0x71));
+itmp_16bits = reg_ip53xs;
+itmp_16bits <<= 8;
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, (0x70));
+itmp_16bits |= reg_ip53xs;
+system_current = itmp_16bits;
+}
+
+void calc_ad_offset_by_power(void)
+{
+
+unsigned long itmp_32bits;
+itmp_32bits = (unsigned long)(system_voltage * system_current);
+if (system_voltage > 4688)
+{
+if (ad_voltage_battery < 14128)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 16000);
+}
+else if (ad_voltage_battery < 14745)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 17000);
+}
+else if (ad_voltage_battery < 15088)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 18000);
+}
+else
+{
+if (itmp_32bits < 6262600)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 18000);
+}
+else
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 20000);
+}
+}
+}
+
+else
+{
+if (ad_voltage_battery < 13800)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 17000);
+}
+else if (ad_voltage_battery < 14327)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 18000);
+}
+else
+{
+if (itmp_32bits < 5120000)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 15500);
+}
+else if (itmp_32bits < 6600000)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 17000);
+}
+else
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 20000);
+}
+}
+}
+}
+
+void calc_ad_offset_by_power_dischg(void)
+{
+
+unsigned long itmp_32bits;
+itmp_32bits = (unsigned long)(system_voltage * system_current);
+if (system_voltage > 4688)
+{
+if (ad_voltage_battery < 13535)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 15000);
+}
+else if (ad_voltage_battery > 13014)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 14000);
+}
+else if (ad_voltage_battery > 12231)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 13000);
+}
+else
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 11500);
+}
+}
+
+else
+{
+if (ad_voltage_battery > 13492)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 17000);
+}
+else if (ad_voltage_battery > 13095)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 16000);
+}
+else if (ad_voltage_battery > 12400)
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 15000);
+}
+else
+{
+ad_offset_by_power = (unsigned int)(itmp_32bits / 13500);
+}
+}
+}
+
+# 1420
+void is_ovp_qc_12v(void)
+{
+
+unsigned int itmp_16bits;
+static unsigned char counter;
+
+# 1431
+itmp_16bits = system_voltage;
+
+if (0 == bFlag_vsys_over_12v8)
+{
+if (itmp_16bits > (7943))
+{
+if (++counter > 3)
+{
+counter = 0;
+bFlag_vsys_over_12v8 = 1;
+
+if (0 == bFlag_disable_discharge_on)
+{
+disable_discharger_on();
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (itmp_16bits < (7758))
+{
+if (++counter > 3)
+{
+counter = 0;
+bFlag_vsys_over_12v8 = 0;
+
+if (bFlag_disable_discharge_on)
+{
+if (0 == bFlag_temp_exception_dischg)
+{
+enable_discharger_on();
+}
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+# 1487
+void is_ovp_6v3(void)
+{
+
+unsigned int itmp_16bits;
+static unsigned char counter;
+
+# 1498
+itmp_16bits = system_voltage;
+
+if (0 == bFlag_vsys_over_6v3)
+{
+if (itmp_16bits > ((3848)))
+{
+if (++counter > 7)
+{
+counter = 15;
+if ((0 == bFlag_discharge_qc) || (bFlag_in_scp_A3))
+{
+bFlag_vsys_over_6v3 = 1;
+if (0 == bFlag_disable_discharge_on)
+{
+disable_discharger_on();
+}
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (itmp_16bits < ((3660)))
+{
+if (++counter > 7)
+{
+counter = 0;
+bFlag_vsys_over_6v3 = 0;
+if (bFlag_disable_discharge_on)
+{
+if (0 == bFlag_temp_exception_dischg)
+{
+enable_discharger_on();
+}
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+void is_ovp_pd_9v(void)
+{
+
+unsigned int itmp_16bits;
+static unsigned char counter;
+
+# 1557
+itmp_16bits = system_voltage;
+
+if (0 == bFlag_ovp_in_pd_9v)
+{
+if (itmp_16bits > ((6331)))
+{
+if (++counter > 7)
+{
+counter = 0;
+
+{
+bFlag_ovp_in_pd_9v = 1;
+
+if (0 == bFlag_disable_discharge_on)
+{
+disable_discharger_on();
+}
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (itmp_16bits < ((6020)))
+{
+if (++counter > 7)
+{
+counter = 0;
+bFlag_ovp_in_pd_9v = 0;
+
+if (bFlag_disable_discharge_on)
+{
+
+if (0 == bFlag_temp_exception_dischg)
+{
+
+enable_discharger_on();
+}
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+void is_vsys_under_4v75(void)
+{
+unsigned int itmp_16bits;
+static unsigned char counter;
+itmp_16bits = system_voltage;
+
+if (bFlag_vsys_under_4v75)
+{
+if (itmp_16bits > ((2948) + 31))
+{
+
+if (++counter > 3)
+{
+counter = 3;
+
+bFlag_vsys_under_4v75 = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (itmp_16bits < ((2948) - 31))
+{
+
+if (++counter > 3)
+{
+counter = 0;
+bFlag_vsys_under_4v75 = 1;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+void is_scp_over_4v5(void)
+{
+
+unsigned int itmp_16bits;
+static unsigned char counter;
+
+# 1660
+itmp_16bits = system_voltage;
+
+# 1666
+if (0 == bFlag_vsys_under_4v5)
+{
+if (itmp_16bits < ((3100) - 48))
+{
+
+if (++counter > 3)
+{
+counter = 0;
+bFlag_vsys_under_4v5 = 1;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (itmp_16bits > (((3100) + 48)))
+{
+
+if (++counter > 3)
+{
+counter = 3;
+if (bFlag_isys_over_1A5)
+{
+counter = 0;
+bFlag_vsys_under_4v5 = 0;
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+
+}
+
+# 1805
+void get_voltage_battery(void)
+{
+unsigned char reg_ip53xs;
+unsigned int itmp_16bits;
+reg_ip53xs = ip53xs_readByte(0xEA, (0x51));
+itmp_16bits = reg_ip53xs;
+itmp_16bits <<= 8;
+reg_ip53xs = ip53xs_readByte(0xEA, (0x50));
+itmp_16bits |= reg_ip53xs;
+ad_voltage_battery = itmp_16bits;
+
+
+
+}
+
+# 1854
+void ip53xx_in_small_current_mode(void)
+{
+
+unsigned char reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x31);
+reg_ip53xs &= 0xFC;
+
+ip53xs_writeByte(0xE8, 0x31, reg_ip53xs);
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x33);
+
+reg_ip53xs |= 0x20;
+ip53xs_writeByte(0xE8, 0x33, reg_ip53xs);
+}
+
+void ip53xx_out_small_current_mode(void)
+{
+
+unsigned char reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x31);
+reg_ip53xs &= 0xFC;
+reg_ip53xs |= 0x02;
+ip53xs_writeByte(0xE8, 0x31, reg_ip53xs);
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x33);
+reg_ip53xs &= (~(0x20));
+
+ip53xs_writeByte(0xE8, 0x33, reg_ip53xs);
+}
+
+void get_small_current_mode_status(void)
+{
+unsigned char reg_ip53xs;
+
+{
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0xE1);
+if (bFlag_in_small_current_mode)
+{
+
+
+if (0 == (reg_ip53xs & 0x80))
+{
+bFlag_in_small_current_mode = 0;
+
+}
+}
+else
+{
+
+
+if (reg_ip53xs & 0x80)
+{
+bFlag_in_small_current_mode = 1;
+delaySleepTimer = (7200UL);
+
+
+}
+}
+}
+}
+
+# 1944
+void get_light_load_status(void)
+{
+unsigned char reg_ip53xs;
+static unsigned char counter;
+unsigned int itmp_16bits;
+unsigned int itmp_16bits_up;
+unsigned int itmp_16bits_dn;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x71);
+itmp_16bits = reg_ip53xs;
+itmp_16bits <<= 8;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x70);
+itmp_16bits |= reg_ip53xs;
+ad_i_input_output = itmp_16bits;
+
+if (bFlag_multi_port)
+{
+itmp_16bits_up = 195 + 16;
+itmp_16bits_dn = 195 - 16;
+}
+else if (bFlag_typec_in)
+{
+itmp_16bits_up = 179 + 16;
+itmp_16bits_dn = 179 - 16;
+}
+else
+{
+itmp_16bits_up = 89 + 16;
+itmp_16bits_dn = 89 - 16;
+}
+
+if (bFlag_light_load)
+{
+
+
+if (itmp_16bits > itmp_16bits_up)
+{
+if (++counter > 7)
+{
+counter = 0;
+bFlag_light_load = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+
+
+if (itmp_16bits < itmp_16bits_dn)
+{
+if (++counter > 7)
+{
+counter = 0;
+bFlag_light_load = 1;
+}
+}
+else
+{
+counter = 0;
+}
+}
+
+# 2046
+}
+
+void disable_DPDM_quick_charge(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xE8, 0x81);
+
+reg_ip53xs &= 0xE1;
+ip53xs_writeByte(0xE8, 0x81, reg_ip53xs);
+}
+
+void disable_DP_quick_charge(void)
+{
+unsigned char reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x91);
+
+reg_ip53xs &= 0xF3;
+reg_ip53xs |= 0x04;
+ip53xs_writeByte(0xEA, 0x91, reg_ip53xs);
+
+# 2074
+reg_ip53xs = ip53xs_readByte(0xE8, 0x00);
+reg_ip53xs &= 0xF3;
+
+ip53xs_writeByte(0xE8, 0x00, reg_ip53xs);
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0xD1);
+
+reg_ip53xs &= 0xCF;
+reg_ip53xs |= 0x10;
+ip53xs_writeByte(0xE8, 0xD1, reg_ip53xs);
+_dly_ms(8);
+reg_ip53xs = ip53xs_readByte(0xE8, 0xD1);
+
+reg_ip53xs &= 0xCF;
+reg_ip53xs |= 0x30;
+ip53xs_writeByte(0xE8, 0xD1, reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x00);
+reg_ip53xs &= 0xF3;
+reg_ip53xs |= (0x04);
+
+ip53xs_writeByte(0xE8, 0x00, reg_ip53xs);
+}
+
+void disable_quick_discharge(void)
+{
+unsigned char reg_ip53xs;
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x86);
+
+reg_ip53xs &= 0xF8;
+reg_ip53xs |= 0x04;
+ip53xs_writeByte(0xEA, 0x86, reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x85);
+
+reg_ip53xs &= 0x01;
+
+ip53xs_writeByte(0xE8, 0x85, reg_ip53xs);
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x97);
+
+reg_ip53xs &= 0x3F;
+reg_ip53xs |= 0x40;
+ip53xs_writeByte(0xEA, 0x97, reg_ip53xs);
+
+_dly_ms(30);
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x86);
+
+reg_ip53xs &= 0xC7;
+reg_ip53xs |= 0x38;
+ip53xs_writeByte(0xEA, 0x86, reg_ip53xs);
+}
+
+void enable_quick_discharge(void)
+{
+unsigned char reg_ip53xs;
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x86);
+
+reg_ip53xs &= 0xF8;
+reg_ip53xs |= 0x04;
+ip53xs_writeByte(0xEA, 0x86, reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x85);
+
+reg_ip53xs &= 0x01;
+reg_ip53xs |= 0xFE;
+ip53xs_writeByte(0xE8, 0x85, reg_ip53xs);
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x97);
+
+reg_ip53xs &= 0x3F;
+
+ip53xs_writeByte(0xEA, 0x97, reg_ip53xs);
+
+_dly_ms(30);
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x86);
+
+reg_ip53xs &= 0xC7;
+reg_ip53xs |= 0x38;
+ip53xs_writeByte(0xEA, 0x86, reg_ip53xs);
+}
+
+void enable_DPDM_quick_charge(void)
+{
+unsigned char reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x81);
+
+reg_ip53xs &= 0xE1;
+reg_ip53xs |= 0x1E;
+ip53xs_writeByte(0xE8, 0x81, reg_ip53xs);
+}
+
+void enable_DP_quick_charge(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xEA, 0x91);
+
+reg_ip53xs &= 0xF3;
+ip53xs_writeByte(0xEA, 0x91, reg_ip53xs);
+}
+
+void enable_output_quick_charge(void)
+{
+unsigned char reg_ip53xs;
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x86);
+
+reg_ip53xs &= 0xF8;
+reg_ip53xs |= 0x04;
+ip53xs_writeByte(0xEA, 0x86, reg_ip53xs);
+
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x85);
+
+reg_ip53xs &= 0x01;
+reg_ip53xs |= 0xFE;
+ip53xs_writeByte(0xE8, 0x85, reg_ip53xs);
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x97);
+
+reg_ip53xs &= 0x3F;
+ip53xs_writeByte(0xEA, 0x97, reg_ip53xs);
+
+_dly_ms(30);
+
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x86);
+
+reg_ip53xs &= 0xC7;
+reg_ip53xs |= 0x38;
+ip53xs_writeByte(0xEA, 0x86, reg_ip53xs);
+}
+
+void disable_quick_charge(void)
+{
+disable_DPDM_quick_charge();
+disable_DP_quick_charge();
+bFlag_disable_quick_charge = 1;
+}
+
+void enable_quick_charge(void)
+{
+
+enable_DPDM_quick_charge();
+enable_DP_quick_charge();
+bFlag_disable_quick_charge = 0;
+}
+
+void disable_quick_discharge(void)
+{
+disable_output_quick_charge();
+bFlag_disable_quick_discharge = 1;
+}
+
+void enable_quick_discharge(void)
+{
+enable_output_quick_charge();
+bFlag_disable_quick_discharge = 0;
+}
+
+
+void derating_power_temp_exception(void)
+{
+unsigned char reg_ip53xs;
+unsigned char itmp;
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x29);
+itmp = restore_reg0x29;
+itmp >>= 1;
+if (reg_ip53xs > itmp)
+{
+
+
+default_power = restore_reg0x29;
+itmp = reg_ip53xs & 0x7F;
+itmp >>= 1;
+reg_ip53xs = (reg_ip53xs & 0x80) | (itmp & 0x7F);
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+bFlag_derating_power_temp_ex = 1;
+derating_power_mode = 1;
+}
+
+void derating_power_temp_exception_again(void)
+{
+unsigned char reg_ip53xs;
+unsigned char itmp;
+reg_ip53xs = ip53xs_readByte(0xE8, 0x29);
+itmp = reg_ip53xs & 0x7F;
+itmp >>= 1;
+reg_ip53xs = (reg_ip53xs & 0x80) | (itmp & 0x7F);
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+bFlag_derating_power_temp_ex = 1;
+}
+
+void restore_power_temp_normal(void)
+{
+unsigned char reg_ip53xs;
+
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x29);
+if (restore_reg0x29 != reg_ip53xs)
+{
+reg_ip53xs = restore_reg0x29;
+ip53xs_writeByte(0xE8, 0x29, reg_ip53xs);
+}
+bFlag_derating_power_temp_ex = 0;
+}
+
+# 2320
+void disable_charger_on(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xE8, 0x00);
+reg_ip53xs &= (~0x01);
+ip53xs_writeByte(0xE8, 0x00, reg_ip53xs);
+bFlag_disable_charge_on = 1;
+}
+void enable_charger_on(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xE8, 0x00);
+reg_ip53xs |= 0x01;
+ip53xs_writeByte(0xE8, 0x00, reg_ip53xs);
+bFlag_disable_charge_on = 0;
+if (bFlag_is_exception_full)
+{
+displayData = 81;
+timer_led4_display = 100;
+timer_chg_minimum = 60;
+bFlag_is_exception_full = 0;
+}
+}
+
+
+void disable_discharger_on(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xE8, 0x00);
+reg_ip53xs &= (~0x02);
+ip53xs_writeByte(0xE8, 0x00, reg_ip53xs);
+bFlag_disable_discharge_on = 1;
+}
+void enable_discharger_on(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xE8, 0x00);
+reg_ip53xs |= 0x02;
+ip53xs_writeByte(0xE8, 0x00, reg_ip53xs);
+bFlag_disable_discharge_on = 0;
+}
+
+void ovp_input_proc(void)
+{
+unsigned char reg_ip53xs;
+unsigned int itmp_16bits;
+static unsigned char counter;
+reg_ip53xs = ip53xs_readByte(0xEA, 0x63);
+itmp_16bits = reg_ip53xs;
+itmp_16bits <<= 8;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x62);
+itmp_16bits |= reg_ip53xs;
+
+if (0 == bFlag_input_ovp)
+{
+if (bFlag_v_chg_5v && ((2358) < itmp_16bits) && (itmp_16bits < (3848)))
+{
+
+counter = 0;
+
+if ((bFlag_disable_charge_on))
+{
+if (bFlag_temp_alarm)
+{
+return;
+}
+if (bFlag_temp_exception_chg)
+{
+
+{
+return;
+}
+}
+
+enable_charger_on();
+}
+return;
+}
+
+if (bFlag_v_chg_9v && ((4841) < itmp_16bits) && (itmp_16bits < (6331)))
+{
+
+counter = 0;
+
+if ((bFlag_disable_charge_on))
+{
+if (bFlag_temp_alarm)
+{
+return;
+}
+if (bFlag_charge_ext)
+{
+return;
+}
+if (bFlag_temp_exception_chg)
+{
+
+{
+return;
+}
+}
+
+enable_charger_on();
+}
+return;
+}
+
+if (bFlag_v_chg_12v && ((6331) < itmp_16bits) && (itmp_16bits < (8193)))
+{
+
+counter = 0;
+
+if ((bFlag_disable_charge_on))
+{
+if (bFlag_temp_alarm)
+{
+return;
+}
+if (bFlag_charge_ext)
+{
+return;
+}
+if (bFlag_temp_exception_chg)
+{
+
+{
+return;
+}
+}
+
+enable_charger_on();
+}
+return;
+}
+
+# 2464
+if (++counter > 7)
+{
+counter = 0;
+bFlag_input_ovp = 1;
+
+disable_charger_on();
+}
+}
+
+# 2492
+}
+
+void is_ocp_short_circuit(void)
+{
+unsigned char reg_ip53xs;
+unsigned char i;
+
+
+
+is_ocp_short_circuit_again:
+
+if ((bFlag_p_ext_int_is_high) && (PC0))
+{
+reg_ip53xs = ip53xs_readByte(0xEA, 0xFC);
+
+if (0 == bFlag_ocp)
+{
+if ((reg_ip53xs & 0x04))
+{
+ip53xs_writeByte(0xEA, 0xFC, reg_ip53xs);
+if (++counter_gl > 1)
+{
+counter_gl = 0;
+gl_timer_out = 0;
+bFlag_ocp = 1;
+forceDispTimer = 0;
+bFlag_reverse = 0;
+ledDispTimer = 0;
+led_display_data = SEG_ALL_OFF;
+bFlag_all_led_is_off = 1;
+
+set_force_standby_mode();
+return;
+}
+else
+{
+
+gl_timer_out = 36;
+}
+
+}
+else
+{
+
+if (0 == gl_timer_out)
+{
+counter_gl = 0;
+}
+else
+{
+gl_timer_out--;
+}
+}
+}
+
+if (0 == bFlag_short_circuit)
+{
+if ((reg_ip53xs & 0x01))
+{
+ip53xs_writeByte(0xEA, 0xFC, reg_ip53xs);
+if (++counter_dl > 1)
+{
+counter_dl = 0;
+dl_timer_out = 0;
+bFlag_short_circuit = 1;
+forceDispTimer = 0;
+bFlag_reverse = 0;
+ledDispTimer = 0;
+led_display_data = SEG_ALL_OFF;
+bFlag_all_led_is_off = 1;
+
+set_force_standby_mode();
+return;
+}
+else
+{
+
+dl_timer_out = 36;
+}
+
+}
+else
+{
+
+if (0 == dl_timer_out)
+{
+counter_dl = 0;
+}
+else
+{
+dl_timer_out--;
+}
+}
+}
+
+# 2596
+if ((counter_dl) || (counter_gl))
+{
+
+for (i = 0; i < 2; i++)
+{
+_dly_ms(20);
+if ((bFlag_p_ext_int_is_high) && (PC0))
+{
+get_multi_port_status();
+}
+_dly_ms(32);
+}
+
+
+{
+I2C_Master_Clear_Error();
+
+}
+if ((bFlag_p_ext_int_is_high) && (PC0))
+{
+goto is_ocp_short_circuit_again;
+}
+}
+}
+}
+
+# 2628
+void is_under_voltage(void)
+{
+unsigned char reg_ip53xs;
+
+static unsigned char counter_is_uv = 0;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0xFD);
+
+if (0 == bFlag_under_voltage)
+{
+if ((0x02 == (reg_ip53xs & 0x02)) || (0x40 == (reg_ip53xs & 0x40)))
+{
+ip53xs_writeByte(0xEA, 0xFD, reg_ip53xs);
+if (++counter_is_uv > 1)
+{
+counter_is_uv = 0;
+under_voltage_timer_out = 0;
+bFlag_under_voltage = 1;
+
+set_force_standby_mode();
+}
+else
+{
+
+under_voltage_timer_out = 36;
+}
+
+}
+else
+{
+
+if (0 == under_voltage_timer_out)
+{
+counter_is_uv = 0;
+}
+else
+{
+under_voltage_timer_out--;
+}
+}
+}
+
+# 2674
+}
+
+
+void change_total_current_limiting(void)
+{
+unsigned char reg_ip53xs;
+unsigned char itmp_8bits;
+unsigned int itmp_16bits;
+
+reg_ip53xs = restore_reg0xb1;
+
+reg_ip53xs &= 0x7F;
+itmp_16bits = (unsigned int)reg_ip53xs;
+
+
+reg_ip53xs = restore_reg0xb5;
+
+reg_ip53xs &= 0x7F;
+itmp_16bits += (unsigned int)reg_ip53xs;
+
+
+
+reg_ip53xs = restore_reg0xb9;
+
+reg_ip53xs &= 0x7F;
+itmp_16bits += (unsigned int)reg_ip53xs;
+
+
+reg_ip53xs = (unsigned char)(itmp_16bits / 3);
+reg_ip53xs &= 0x7F;
+
+# 2709
+if (reg_ip53xs < (0x7F - 0x0D))
+{
+reg_ip53xs += 0x0D;
+}
+else
+{
+reg_ip53xs = 0x7F;
+}
+
+# 2732
+itmp_8bits = (restore_reg0xb1 & 0x80);
+itmp_8bits |= reg_ip53xs;
+ip53xs_writeByte(0xE8, 0XB1, itmp_8bits);
+itmp_8bits = (restore_reg0xb5 & 0x80);
+itmp_8bits |= reg_ip53xs;
+ip53xs_writeByte(0xE8, 0XB5, itmp_8bits);
+itmp_8bits = (restore_reg0xb9 & 0x80);
+itmp_8bits |= reg_ip53xs;
+ip53xs_writeByte(0xE8, 0XB9, itmp_8bits);
+bFlag_change_total_i_limit = 1;
+}
+
+void restore_total_current_limiting(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = restore_reg0xb1;
+ip53xs_writeByte(0xE8, 0XB1, reg_ip53xs);
+
+reg_ip53xs = restore_reg0xb5;
+ip53xs_writeByte(0xE8, 0XB5, reg_ip53xs);
+
+reg_ip53xs = restore_reg0xb9;
+ip53xs_writeByte(0xE8, 0XB9, reg_ip53xs);
+bFlag_change_total_i_limit = 0;
+}
+
+void disable_vbus_dishg_i_low(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xE8, 0X1B);
+if (reg_ip53xs & 0x01)
+{
+reg_ip53xs &= 0xFE;
+ip53xs_writeByte(0xE8, 0X1B, reg_ip53xs);
+}
+}
+
+void enable_vbus_dishg_i_low(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xE8, 0X1B);
+if (0 == (reg_ip53xs & 0x01))
+{
+reg_ip53xs |= 0x01;
+ip53xs_writeByte(0xE8, 0X1B, reg_ip53xs);
+}
+}
+
+# 2784
+void get_multi_port_status(void)
+{
+unsigned char reg_ip53xs;
+unsigned char port_num;
+reg_ip53xs = ip53xs_readByte(0xEA, 0xEB);
+
+port_num = 0;
+
+if (reg_ip53xs & 0x20)
+{
+port_num++;
+}
+if (reg_ip53xs & 0x10)
+{
+port_num++;
+}
+
+if (reg_ip53xs & 0x40)
+{
+port_num++;
+
+if (port_num > 1)
+{
+disable_vbus_dishg_i_low();
+}
+}
+else
+{
+enable_vbus_dishg_i_low();
+}
+
+if (bFlag_multi_port)
+{
+if (port_num < 2)
+{
+bFlag_multi_port = 0;
+
+if (bFlag_change_total_i_limit)
+{
+restore_total_current_limiting();
+}
+}
+}
+else
+{
+if (port_num > 1)
+{
+bFlag_multi_port = 1;
+
+if (0 == bFlag_change_total_i_limit)
+{
+change_total_current_limiting();
+}
+}
+}
+
+if (bFlag_usb_a1_in)
+{
+if (0 == (reg_ip53xs & 0x10))
+{
+bFlag_usb_a1_in = 0;
+
+
+
+
+}
+}
+else
+{
+if (reg_ip53xs & 0x10)
+{
+bFlag_usb_a1_in = 1;
+
+if (bFlag_all_led_is_off)
+{
+bFlag_all_led_is_off = 0;
+if (displayData)
+{
+
+forceDispTimer = 5;
+bFlag_reverse = 0;
+display_cycle = 125;
+ledDispTimer = (10);
+}
+else
+{
+
+ledDispTimer = (10);
+}
+}
+}
+}
+
+if (bFlag_usb_a2_in)
+{
+if (0 == (reg_ip53xs & 0x20))
+{
+bFlag_usb_a2_in = 0;
+
+
+
+
+}
+}
+else
+{
+if (reg_ip53xs & 0x20)
+{
+bFlag_usb_a2_in = 1;
+
+if (bFlag_all_led_is_off)
+{
+bFlag_all_led_is_off = 0;
+
+if (displayData)
+{
+
+forceDispTimer = 5;
+bFlag_reverse = 0;
+display_cycle = 125;
+ledDispTimer = (10);
+}
+else
+{
+
+ledDispTimer = (10);
+}
+}
+}
+}
+}
+
+void vol_bat_is_over_4v(void)
+{
+static unsigned char counter;
+if (bFlag_vol_bat_over_4v)
+{
+if (ad_voltage_battery < (14746))
+{
+
+if (++counter > 7)
+{
+counter = 0;
+bFlag_vol_bat_over_4v = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (ad_voltage_battery > (15080))
+{
+
+if (++counter > 7)
+{
+counter = 0;
+bFlag_vol_bat_over_4v = 1;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+void vol_bat_is_under_3v5(void)
+{
+
+static unsigned char counter;
+
+if (0 == bFlag_vol_bat_under_3v5)
+{
+if (0 == bFlag_charge_on)
+{
+if (ad_voltage_battery < ((12925)))
+{
+
+if (++counter > 7)
+{
+counter = 0;
+bFlag_vol_bat_under_3v5 = 1;
+
+if (bFlag_in_scp_A3)
+{
+
+derating_power_bat_under_3v5();
+}
+else
+{
+
+derating_power_bat_under_3v5_no_reset();
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+
+if (bFlag_charge_on)
+{
+if (ad_voltage_battery > ((14336)))
+{
+
+if (++counter > 7)
+{
+counter = 0;
+bFlag_vol_bat_under_3v5 = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+
+
+void get_protocol_indication(void)
+{
+unsigned char reg_ip53xs = 0;
+static unsigned char counter = 0;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0xA4);
+reg_ip53xs &= 0xF0;
+
+if (0 == bFlag_in_scp_A3)
+{
+if (0xC0 == reg_ip53xs)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_in_scp_A3 = 1;
+timer_dly_chk_vsys = 4;
+
+# 3055
+}
+
+
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (0xC0 != reg_ip53xs)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_in_scp_A3 = 0;
+
+
+if (bFlag_under_3v5_derating_power)
+{
+
+}
+else if (bFlag_adjust_scp_ocp_4A5 || bFlag_adjust_scp_ocp_5A)
+{
+
+restore_power_no_in_scp_A3();
+}
+
+isys_grade = 0;
+if (add_voltage_offset)
+{
+restore_reg0xAC_in_scp();
+}
+}
+
+
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+# 3107
+void derating_power_bat_under_3v5(void)
+{
+unsigned char reg_ip53xs;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0x86);
+restore_reg0x86 = reg_ip53xs;
+reg_ip53xs |= 0x02;
+ip53xs_writeByte(0xEA, 0x86, reg_ip53xs);
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0x90);
+reg_ip53xs &= 0xFC;
+reg_ip53xs |= 0x02;
+ip53xs_writeByte(0xE8, 0x90, reg_ip53xs);
+
+# 3136
+reg_ip53xs = (restore_reg0xA6 - 32);
+
+ip53xs_writeByte(0xE8, 0xA6, reg_ip53xs);
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0xA6);
+
+
+_dly_ms(250);
+_dly_ms(250);
+reg_ip53xs = ip53xs_readByte(0xEA, 0x86);
+reg_ip53xs |= 0x10;
+ip53xs_writeByte(0xEA, 0x86, reg_ip53xs);
+bFlag_under_3v5_derating_power = 1;
+}
+
+void derating_power_bat_under_3v5_no_reset(void)
+{
+unsigned char reg_ip53xs;
+
+# 3161
+reg_ip53xs = ip53xs_readByte(0xE8, 0x90);
+reg_ip53xs &= 0xFC;
+reg_ip53xs |= 0x02;
+ip53xs_writeByte(0xE8, 0x90, reg_ip53xs);
+
+# 3181
+reg_ip53xs = (restore_reg0xA6 - 32);
+ip53xs_writeByte(0xE8, 0xA6, reg_ip53xs);
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0xA6);
+
+# 3192
+bFlag_under_3v5_derating_power = 1;
+}
+
+# 3246
+void derating_power_scp_over_4v5(void)
+{
+unsigned char reg_ip53xs = 0;
+
+# 3257
+reg_ip53xs = (restore_reg0xA6 - 11);
+ip53xs_writeByte(0xE8, 0xA6, reg_ip53xs);
+
+reg_ip53xs = ip53xs_readByte(0xE8, 0xA6);
+
+bFlag_adjust_scp_ocp_4A5 = 1;
+bFlag_adjust_scp_ocp_5A = 0;
+}
+
+# 3292
+void restore_power_no_in_scp_A3(void)
+{
+unsigned char reg_ip53xs = 0;
+
+
+reg_ip53xs = restore_reg0xA6;
+ip53xs_writeByte(0xE8, 0xA6, reg_ip53xs);
+
+bFlag_adjust_scp_ocp_5A = 0;
+bFlag_adjust_scp_ocp_4A5 = 0;
+
+}
+
+void get_type_c_state(void)
+{
+
+
+
+unsigned char reg_ip53xs = 0;
+
+reg_ip53xs = ip53xs_readByte(0xEA, 0xF3);
+
+
+reg_ip53xs &= 0x80;
+if (bFlag_typec_in)
+{
+if (0 == reg_ip53xs)
+{
+bFlag_typec_in = 0;
+
+# 3330
+}
+}
+else
+{
+if (reg_ip53xs)
+{
+bFlag_typec_in = 1;
+
+if (bFlag_all_led_is_off)
+{
+bFlag_all_led_is_off = 0;
+
+if (displayData)
+{
+
+forceDispTimer = 5;
+bFlag_reverse = 0;
+display_cycle = 125;
+ledDispTimer = (10);
+}
+else
+{
+
+ledDispTimer = (10);
+}
+}
+}
+}
+}
+
+# 3364
+void set_force_standby_mode(void)
+{
+unsigned char reg_ip53xs;
+unsigned char timerOut;
+
+reg_ip53xs = ip53xs_readByte(0xEA, (0x86));
+reg_ip53xs &= 0x7F;
+reg_ip53xs |= (0x80);
+ip53xs_writeByte(0xEA, (0x86), reg_ip53xs);
+bFlag_p_ext_int_is_high = 0;
+timerOut = 100;
+while (PC0)
+{
+
+_dly_ms(10);
+if (!(--timerOut))
+{
+
+break;
+}
+}
+}
+
+# 3433
+void get_v_chg_state(void)
+{
+
+unsigned char reg_ip53xs;
+reg_ip53xs = ip53xs_readByte(0xEA, 0xE8);
+reg_ip53xs >>= 4;
+reg_ip53xs &= 0x03;
+switch (reg_ip53xs)
+{
+case 0:
+
+bFlag_v_chg_5v = 1;
+
+bFlag_v_chg_7v = 0;
+bFlag_v_chg_9v = 0;
+bFlag_v_chg_12v = 0;
+
+break;
+case 1:
+bFlag_v_chg_5v = 0;
+if (0 == bFlag_v_chg_7v)
+{
+bFlag_v_chg_7v = 1;
+g_counter_cc = 0;
+}
+bFlag_v_chg_9v = 0;
+bFlag_v_chg_12v = 0;
+
+break;
+case 2:
+bFlag_v_chg_5v = 0;
+bFlag_v_chg_7v = 0;
+if (0 == bFlag_v_chg_9v)
+{
+bFlag_v_chg_9v = 1;
+g_counter_cc = 0;
+}
+bFlag_v_chg_12v = 0;
+
+break;
+
+case 3:
+bFlag_v_chg_5v = 0;
+bFlag_v_chg_7v = 0;
+bFlag_v_chg_9v = 0;
+if (0 == bFlag_v_chg_12v)
+{
+bFlag_v_chg_12v = 1;
+g_counter_cc = 0;
+}
+
+break;
+default:
+
+break;
+}
+}
+
+void get_cc_state(void)
+{
+
+unsigned char reg_ip53xs;
+static unsigned char counter;
+reg_ip53xs = ip53xs_readByte(0xEA, 0xF3);
+
+reg_ip53xs &= 0x40;
+if (bFlag_cc_src_sink_ok)
+{
+if (0 == reg_ip53xs)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_cc_src_sink_ok = 0;
+
+# 3516
+}
+}
+else
+{
+counter = 0;
+bFlag_charge_ext = 0;
+g_counter_cc = 0;
+}
+}
+else
+{
+if (reg_ip53xs)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_cc_src_sink_ok = 1;
+bFlag_charge_ext = 0;
+g_counter_cc = 0;
+
+# 3544
+}
+}
+else
+{
+counter = 0;
+if (bFlag_v_chg_12v || bFlag_v_chg_9v || bFlag_v_chg_7v)
+{
+if (++g_counter_cc > 4)
+{
+g_counter_cc = 0;
+bFlag_charge_ext = 1;
+if (0 == bFlag_disable_charge_on)
+{
+disable_charger_on();
+}
+}
+}
+}
+
+}
+}
+
+void get_0xE8_0xA6(void)
+{
+
+
+}
+
+# 3584
+void is_sink_pd_ok(void)
+{
+unsigned char reg_ip53xs = 0;
+static unsigned char counter;
+reg_ip53xs = ip53xs_readByte(0xEA, 0xC2);
+reg_ip53xs &= 0x80;
+
+if (bFlag_sink_pd)
+{
+if (0 == reg_ip53xs)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_sink_pd = 0;
+if (0 == bFlag_derating_power_non_pd_9v)
+{
+derating_power_non_pd_9v();
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (reg_ip53xs)
+{
+if (++counter > 2)
+{
+counter = 0;
+bFlag_sink_pd = 1;
+if (bFlag_derating_power_non_pd_9v)
+{
+restore_power_non_pd_9v();
+}
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+# 3638
+void derating_power_non_pd_9v(void)
+{
+unsigned char reg_ip53xs;
+
+# 3647
+reg_ip53xs = (restore_reg0xBB - 6);
+ip53xs_writeByte(0xE8, 0xBB, reg_ip53xs);
+bFlag_derating_power_non_pd_9v = 1;
+}
+
+void restore_power_non_pd_9v(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = restore_reg0xBB;
+ip53xs_writeByte(0xE8, 0xBB, reg_ip53xs);
+bFlag_derating_power_non_pd_9v = 0;
+}
+
+# 3704
+void get_isys_grade(void)
+{
+
+unsigned char reg_ip53xs;
+unsigned int itmp_16bits;
+reg_ip53xs = ip53xs_readByte(0xEA, 0x71);
+itmp_16bits = reg_ip53xs;
+itmp_16bits <<= 8;
+reg_ip53xs = ip53xs_readByte(0xEA, 0x70);
+itmp_16bits |= reg_ip53xs;
+
+if (bFlag_isys_over_1A5)
+{
+if (itmp_16bits < ((2048) - (298)))
+{
+bFlag_isys_over_1A5 = 0;
+}
+}
+else
+{
+if (itmp_16bits > ((2048) + (298)))
+{
+bFlag_isys_over_1A5 = 1;
+}
+}
+
+switch (isys_grade)
+{
+case 0:
+if (itmp_16bits > ((3724) + (298)))
+{
+if (itmp_16bits < (5213))
+{
+if (++counter_isys_big > 3)
+{
+isys_grade = 1;
+}
+}
+else if (itmp_16bits < (6703))
+{
+isys_grade = 2;
+}
+else
+{
+isys_grade = 3;
+}
+}
+else
+{
+counter_isys_big = 0;
+}
+break;
+case 1:
+if (itmp_16bits < ((3724) - (298)))
+{
+counter_isys_big = 0;
+if (++counter_isys_small > 3)
+{
+isys_grade = 0;
+}
+}
+else if (itmp_16bits > ((5213) + (298)))
+{
+counter_isys_small = 0;
+if (itmp_16bits < (6703))
+{
+if (++counter_isys_big > 3)
+{
+isys_grade = 2;
+}
+}
+else
+{
+isys_grade = 3;
+}
+}
+else
+{
+
+counter_isys_small = 0;
+counter_isys_big = 0;
+}
+break;
+case 2:
+if (itmp_16bits < (3724))
+{
+isys_grade = 0;
+}
+else if (itmp_16bits < ((5213) - (298)))
+{
+counter_isys_big = 0;
+if (++counter_isys_small > 3)
+{
+isys_grade = 1;
+}
+}
+else if (itmp_16bits > ((6703) + (298)))
+{
+if (++counter_isys_big > 3)
+{
+isys_grade = 1;
+}
+}
+else
+{
+counter_isys_big = 0;
+counter_isys_small = 0;
+}
+
+break;
+case 3:
+if (itmp_16bits < (3724))
+{
+isys_grade = 0;
+}
+else if (itmp_16bits < (5213))
+{
+isys_grade = 1;
+}
+else if (itmp_16bits < ((6703) - (298)))
+{
+if (++counter_isys_small > 3)
+{
+isys_grade = 2;
+}
+}
+break;
+default:
+break;
+}
+
+# 3851
+}
+
+void in_scp_add_voltage_offset(void)
+{
+unsigned char reg_ip53xs;
+unsigned char reg_ip53xs_read;
+reg_ip53xs_read = ip53xs_readByte(0xE8, 0xAC);
+switch (isys_grade)
+{
+case 1:
+reg_ip53xs = restore_reg0xAC;
+reg_ip53xs >>= 4;
+if (reg_ip53xs < 0x0F)
+{
+reg_ip53xs = (restore_reg0xAC + 0x10);
+if (reg_ip53xs_read != reg_ip53xs)
+{
+
+ip53xs_writeByte(0xE8, 0xAC, reg_ip53xs);
+}
+add_voltage_offset = 1;
+}
+
+# 3878
+break;
+case 2:
+reg_ip53xs = restore_reg0xAC;
+reg_ip53xs >>= 4;
+if (reg_ip53xs < 0x0E)
+{
+reg_ip53xs = (restore_reg0xAC + 0x20);
+if (reg_ip53xs_read != reg_ip53xs)
+{
+
+ip53xs_writeByte(0xE8, 0xAC, reg_ip53xs);
+}
+add_voltage_offset = 2;
+}
+else if (reg_ip53xs < 0x0F)
+{
+reg_ip53xs = (restore_reg0xAC + 0x10);
+if (reg_ip53xs_read != reg_ip53xs)
+{
+
+ip53xs_writeByte(0xE8, 0xAC, reg_ip53xs);
+}
+add_voltage_offset = 1;
+}
+
+break;
+case 3:
+reg_ip53xs = restore_reg0xAC;
+reg_ip53xs >>= 4;
+if (reg_ip53xs < 0x0D)
+{
+reg_ip53xs = (restore_reg0xAC + 0x30);
+if (reg_ip53xs_read != reg_ip53xs)
+{
+
+ip53xs_writeByte(0xE8, 0xAC, reg_ip53xs);
+}
+add_voltage_offset = 2;
+}
+else if (reg_ip53xs < 0x0E)
+{
+reg_ip53xs = (restore_reg0xAC + 0x20);
+if (reg_ip53xs_read != reg_ip53xs)
+{
+
+ip53xs_writeByte(0xE8, 0xAC, reg_ip53xs);
+}
+add_voltage_offset = 2;
+}
+else if (reg_ip53xs < 0x0F)
+{
+reg_ip53xs = (restore_reg0xAC + 0x10);
+if (reg_ip53xs_read != reg_ip53xs)
+{
+
+ip53xs_writeByte(0xE8, 0xAC, reg_ip53xs);
+}
+add_voltage_offset = 1;
+}
+break;
+default:
+if (add_voltage_offset)
+{
+restore_reg0xAC_in_scp();
+}
+break;
+}
+}
+void restore_reg0xAC_in_scp(void)
+{
+unsigned char reg_ip53xs;
+reg_ip53xs = restore_reg0xAC;
+ip53xs_writeByte(0xE8, 0xAC, reg_ip53xs);
+add_voltage_offset = 0;
+}
+
+# 3963
+void get_0xea_0xa9(void)
+{
+unsigned char reg_ip53xs;
+static unsigned char counter;
+reg_ip53xs = ip53xs_readByte(0xEA, 0xA9);
+if (bFlag_trel_over_7v)
+{
+if (reg_ip53xs < ((95) - 5))
+{
+if (++counter > 3)
+{
+counter = 0;
+bFlag_trel_over_7v = 0;
+}
+}
+
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (reg_ip53xs > ((95) + 5))
+{
+if (++counter > 3)
+{
+counter = 0;
+bFlag_trel_over_7v = 1;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+
+# 4086
+void init_battery_volume(void)
+{
+
+
+get_voltage_battery();
+
+if (ad_voltage_battery <= 11646)
+{
+battery_volume_voltage = 0;
+}
+else
+{
+battery_volume_voltage = (ad_voltage_battery - 11646) / 39;
+}
+
+if (battery_volume_voltage > 100)
+battery_volume_voltage = 100;
+
+
+
+if (battery_volume_voltage < 50)
+{
+displayData = battery_volume_voltage >> 1;
+}
+else if (battery_volume_voltage < 85)
+{
+displayData = (battery_volume_voltage - 8);
+}
+else
+{
+
+displayData = (battery_volume_voltage - 50 + (battery_volume_voltage >> 1));
+}
+
+get_indicator_light_mode();
+}
+
+
+void get_battery_volume(void)
+{
+static unsigned char counter_cc;
+static unsigned char counter_uv;
+
+if (ad_voltage_battery < 11646)
+{
+battery_volume_voltage = 0;
+if (0 == bFlag_charge_on)
+{
+if (timer_chg_minimum < 50)
+{
+timer_chg_minimum = 50;
+}
+}
+counter_cc = 0;
+
+if (0 == bFlag_bat_under_voltage)
+{
+if (0 == bFlag_charge_on)
+{
+if (ad_voltage_battery < 11425)
+{
+counter_uv++;
+
+if (counter_uv > 15)
+{
+
+counter_uv = 0;
+bFlag_bat_under_voltage = 1;
+underVoltageDispTimer = (11);
+ledDispTimer = 0;
+timer_chg_minimum = 60;
+}
+}
+else
+{
+counter_uv = 0;
+}
+}
+else
+{
+counter_uv = 0;
+}
+}
+}
+else if (ad_voltage_battery >= 15546)
+{
+if (bFlag_charge_on)
+{
+
+if (ad_voltage_battery >= (15574))
+{
+if (++counter_cc > 63)
+{
+counter_cc = 63;
+
+if (bFlag_is_trickle_charge)
+{
+battery_volume_voltage = 100;
+}
+else
+{
+if (battery_volume_voltage < 100)
+{
+battery_volume_voltage = 99;
+}
+}
+}
+}
+else
+{
+counter_cc = 0;
+}
+}
+else
+{
+counter_cc = 0;
+if (ad_voltage_battery >= (15574))
+{
+battery_volume_voltage = 100;
+}
+else
+{
+battery_volume_voltage = 99;
+displayData = 99;
+}
+}
+}
+else
+{
+counter_cc = 0;
+battery_volume_voltage = (ad_voltage_battery - 11646) / 39;
+if ((100 == displayData) && (0 == bFlag_charge_on))
+{
+if (++timer_display_full > 60)
+{
+
+displayData = 99;
+}
+}
+
+if ((bFlag_bat_under_voltage) && (bFlag_charge_on))
+{
+if (ad_voltage_battery > 12580)
+{
+if (++counter_uv > 15)
+{
+
+bFlag_bat_under_voltage = 0;
+underVoltageDispTimer = 0;
+displayData = 10;
+}
+}
+else
+{
+counter_uv = 0;
+}
+}
+}
+}
+
+
+
+
+void get_i_trickle_status(void)
+{
+
+static unsigned char counter = 0;
+
+
+
+if (bFlag_is_trickle_charge)
+{
+if (ad_offset_by_power > ((300)))
+{
+if (++counter > 32)
+{
+bFlag_is_trickle_charge = 0;
+}
+}
+else
+{
+counter = 0;
+}
+}
+else
+{
+if (ad_offset_by_power < ((256)))
+{
+if (++counter > 32)
+{
+bFlag_is_trickle_charge = 1;
+timer_led4_display = 40;
+}
+}
+else
+{
+counter = 0;
+}
+}
+}
+

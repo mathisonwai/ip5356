@@ -1,0 +1,1 @@
+ bsp_i2c.d  bsp_i2c.p1:  bsp_i2c.c app_global.h bsp_i2c.h bsp_ip53xs.h app_cfg.h

@@ -1,0 +1,1 @@
+ powerBank.d  powerBank.p1:  powerBank.c app_bms_ip53xs.h app_display.h app_key.h app_global.h bsp_io_uart.h bsp_i2c.h bsp_led.h bsp_ip53xs.h app_cfg.h bsp_adc.h

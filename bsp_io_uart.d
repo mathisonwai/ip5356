@@ -1,0 +1,1 @@
+ bsp_io_uart.d  bsp_io_uart.p1:  bsp_io_uart.c app_global.h bsp_io_uart.h app_cfg.h
